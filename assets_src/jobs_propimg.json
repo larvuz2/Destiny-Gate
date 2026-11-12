@@ -1,0 +1,379 @@
+[
+ {
+  "id": "p_ceiling_lamp_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s railway carriage ceiling lamp: a round tarnished brass ceiling mount with a hanging frosted opal glass bowl shade held by three brass arms. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/ceiling_lamp.png"
+  }
+ },
+ {
+  "id": "p_sconce_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s railway carriage wall lamp: small tarnished brass wall bracket with a tulip-shaped frosted ribbed glass shade pointing up. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/sconce.png"
+  }
+ },
+ {
+  "id": "p_rack_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A section of a 1930s railway carriage overhead luggage rack: ornate cast brass wall brackets holding a shelf of parallel brass tubes and string netting, 1.5 metres long, viewed from below-front. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/rack.png"
+  }
+ },
+ {
+  "id": "p_suitcase_a_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A battered 1930s brown leather suitcase with brass corner caps, two straps with buckles and travel wear. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/suitcase_a.png"
+  }
+ },
+ {
+  "id": "p_suitcase_b_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A stack of three mismatched 1930s travel cases: a large dark green steamer trunk with wooden slats at the bottom, a tan leather suitcase, and a small cardboard case tied with string on top. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/suitcase_b.png"
+  }
+ },
+ {
+  "id": "p_sample_case_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s travelling salesman's sample case: tall rectangular black leatherette case with nickel latches and a worn leather handle, standing upright. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/sample_case.png"
+  }
+ },
+ {
+  "id": "p_wrench_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A massive antique railroad track wrench, 80 cm long, single open jaw, forged blue-black steel shaft with hammered texture, a brass collar ring and worn leather-wrapped grip, heavy and slightly sinister, lying diagonally. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/wrench.png"
+  }
+ },
+ {
+  "id": "p_lantern_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "An antique brass railroad conductor's hand lantern with a wire guard cage, a clear glass globe filled with softly glowing warm golden liquid light, a looped carrying handle on top, droplets of glowing liquid at the base. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/lantern.png"
+  }
+ },
+ {
+  "id": "p_watch_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A large antique brass conductor's pocket watch with open face, engraved case with a locomotive motif, ivory dial with black roman numerals, blued steel hands, a short chain, slightly tarnished. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/watch.png"
+  }
+ },
+ {
+  "id": "p_cabinet_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A small 1930s wall-mounted conductor's cabinet from a train: dark walnut box with a glass-paned door, brass hinges and keyhole, a brass hook inside, front view slightly angled. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/cabinet.png"
+  }
+ },
+ {
+  "id": "p_latch_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A heavy industrial door latch mechanism from a 1930s train service door: a worn brass housing plate with a blue-steel lever bolt and a square nut, mounted on a small piece of dark iron plate. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/latch.png"
+  }
+ },
+ {
+  "id": "p_release_pin_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A heavy railway coupling release mechanism: a thick blue-steel pin with a ring handle seated in a tarnished brass housing bolted on a riveted iron base, with a red painted tension mark. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/release_pin.png"
+  }
+ },
+ {
+  "id": "p_cable_handle_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A wall-mounted emergency pull handle on a steel cable: a brass T-shaped handle with red painted grip hanging from a tensioned steel cable that runs through a small iron pulley bracket. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/cable_handle.png"
+  }
+ },
+ {
+  "id": "p_counterweight_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A massive cast iron counterweight block from railway machinery, rectangular with chamfered corners and raised foundry lettering worn away, hanging from a thick iron chain and shackle, rust and grease. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/counterweight.png"
+  }
+ },
+ {
+  "id": "p_heater_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s railway carriage steam heater radiator: low long cast iron finned pipe radiator with brass valve wheel, chipped dark paint. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/heater.png"
+  }
+ },
+ {
+  "id": "p_crate_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s wooden shipping crate with rope handles, stencilled markings worn off, iron corner brackets. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/crate.png"
+  }
+ },
+ {
+  "id": "p_valves_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A cluster of old brass steam pipes with two red valve wheels and a pressure gauge with a cracked glass face, mounted on a dark iron bracket. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/valves.png"
+  }
+ },
+ {
+  "id": "p_passenger_a_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A seated 1930s male train passenger, full body, sitting upright on a simple wooden bench with hands on his knees, wearing a dark heavy wool overcoat and a flat cap pulled low, face in shadow under the cap brim, sombre. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/passenger_a.png"
+  }
+ },
+ {
+  "id": "p_passenger_b_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A seated 1930s woman train passenger, full body, sitting on a simple wooden bench with a handbag on her lap, wearing a dark wool coat with fur collar and a cloche hat, head bowed so the face is hidden. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/passenger_b.png"
+  }
+ },
+ {
+  "id": "p_station_lantern_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A monumental surreal station lamp: a huge barrel-shaped lantern with glowing white segmented glass panels held in an organic art-nouveau cast iron cage, standing on a swollen sculpted stone pedestal, like a nightmare railway station fixture. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/station_lantern.png"
+  }
+ },
+ {
+  "id": "p_locomotive_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A black 1920s American steam locomotive with tender, side three-quarter view, soot-covered boiler, large driving wheels with connecting rods, brass bell, single round headlamp. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/locomotive.png"
+  }
+ },
+ {
+  "id": "p_coach_ext_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1920s American heavyweight passenger railway coach exterior, dark olive green riveted steel body with a row of rectangular windows, clerestory roof, steps at each end, side three-quarter view, full length in frame. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/coach_ext.png"
+  }
+ },
+ {
+  "id": "p_door_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s railway carriage interior end door: dark varnished walnut door with a tall frosted glass window pane in the upper half, brass lever handle and brass kick plate, in its simple wooden frame, straight front view. Authentic aged 1930s period object, photorealistic, physically based materials. Isolated on a plain white seamless background, soft even studio lighting, no harsh shadows, three-quarter view, entire object in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/door.png"
+  }
+ },
+ {
+  "id": "f_photo",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A worn 1929 sepia studio portrait photograph of a young mother seated with a toddler boy on her lap and a little girl of about five standing beside her, formal clothes of the period, gentle smiles, soft vignette, creased and thumb-worn print with a white deckled border, scanned flat on black.",
+   "aspect_ratio": "4:5",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/photo.png"
+  }
+ },
+ {
+  "id": "f_ticket",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A scanned 1932 American railroad passenger ticket stub, cream card stock with red and black letterpress printing, reading 'THIRD CLASS', 'DEC 24 1932', destination printed as 'DESTINY GATE', punch holes, serial number, worn edges, flat scan on black.",
+   "aspect_ratio": "16:9",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/ticket.png"
+  }
+ },
+ {
+  "id": "f_order",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A scanned 1932 carbon-copy sales order form from 'STANDARD STEEL CO.', typed columns of quantities and prices that are struck through and overtyped again and again, a red stamp reading 'DECLINED', coffee ring, folded creases, flat scan on black.",
+   "aspect_ratio": "3:4",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/order.png"
+  }
+ },
+ {
+  "id": "f_exterior",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "Seamless horizontally tiling panorama of a flat snow-covered midwestern farmland at blue hour seen from a moving train in December 1932: distant bare tree lines, a few telegraph poles, one far farmhouse with a single lit window, low mist, heavy overcast sky, deep cold blue monochrome, cinematic, slight motion softness, no train visible.",
+   "aspect_ratio": "21:9",
+   "resolution": "2K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/exterior.png"
+  }
+ },
+ {
+  "id": "f_station_matte",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "Cinematic matte painting of an impossibly vast subterranean railway station cavern: dozens of elevated iron viaducts and railway tracks crossing in impossible Escher-like directions at different angles and heights, some upside down, colossal art-nouveau stone piers, enormous vaulted darkness above, cold blue-grey fog glowing from huge barrel-shaped white lanterns, tiny warm lit windows of distant trains, monumental scale, moody, deep atmospheric perspective, no people.",
+   "aspect_ratio": "21:9",
+   "resolution": "2K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/station_matte.png"
+  }
+ },
+ {
+  "id": "f_grime",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "Dirty train window glass texture: soot streaks, condensation droplets and frost creeping in from the edges, fingerprints, on pure black background, white marks only, high contrast, flat.",
+   "aspect_ratio": "16:9",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "flat/grime.png"
+  }
+ }
+]

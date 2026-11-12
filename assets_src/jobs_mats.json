@@ -1,0 +1,145 @@
+[
+ {
+  "id": "t_walnut",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "1930s railway carriage wall panelling, deep walnut wood veneer, vertical boards with fine straight grain, aged varnish with subtle wear and soft sheen, dark brown, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/walnut"
+ },
+ {
+  "id": "t_canvas",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "dirty quilted padded cell wall canvas, thick off-white bone coloured cotton duck fabric with diamond tufting, stains, grime, stitched seams, heavy fabric weave, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/canvas"
+ },
+ {
+  "id": "t_floor",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "1930s railway carriage floor, worn dark stained pine floorboards running lengthwise, scuffed, ingrained soot and grime in the gaps, matte, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/floor"
+ },
+ {
+  "id": "t_ceiling",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "aged cream painted tongue-and-groove wooden ceiling boards of a 1930s train carriage, nicotine yellowing, hairline paint cracks, soot staining, satin, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/ceiling"
+ },
+ {
+  "id": "t_brass",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "old tarnished brushed brass sheet metal, fine directional brushing, fingerprints, localized dark tarnish and verdigris specks, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/brass"
+ },
+ {
+  "id": "t_wool",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "worn tobacco brown wool moquette upholstery fabric of a 1930s train seat, tight woven pile, subtle wear and pilling, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/wool"
+ },
+ {
+  "id": "t_iron",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "dark locomotive boiler plate steel with rows of dome rivets, chipped black enamel paint, oil stains, machining marks, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/iron"
+ },
+ {
+  "id": "t_rust",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "heavily oxidized rusted iron plate, flaking orange-brown rust over dark steel, pitting, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/rust"
+ },
+ {
+  "id": "t_leather",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "old dark oxblood brown leather, creased, cracked finish, worn edges, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/leather"
+ },
+ {
+  "id": "t_steel",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "blued gunmetal steel, dark blue-black satin machined metal with fine scratches and oil sheen, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/steel"
+ },
+ {
+  "id": "t_stone",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "massive soot-blackened granite masonry blocks of a Victorian railway station wall, damp streaks, fine mortar joints, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/stone"
+ },
+ {
+  "id": "t_grate",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "industrial cast iron floor grating with tight rectangular bar pattern seen from directly above, dark worn metal, grease, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/grate"
+ },
+ {
+  "id": "t_gravel",
+  "endpoint": "fal-ai/patina/material",
+  "input": {
+   "prompt": "railway track ballast, dark grey crushed stone gravel dusted with snow and soot, top view, flat lit, seamless texture",
+   "image_size": "square_hd",
+   "output_format": "png",
+   "upscale_factor": 2
+  },
+  "saveMaps": "tex/gravel"
+ }
+]

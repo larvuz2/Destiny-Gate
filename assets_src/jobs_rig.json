@@ -1,0 +1,85 @@
+[
+ {
+  "id": "r_mitchell_a",
+  "endpoint": "meshy/rigging/multi-animation",
+  "input": {
+   "model_url": "@result:m_mitchell:model_glb.url",
+   "height_meters": 1.78,
+   "animation_action_ids": [
+    0,
+    30,
+    14,
+    33,
+    53,
+    219,
+    283,
+    178,
+    187,
+    344
+   ]
+  },
+  "save": {
+   "rigged_character_glb.url": "char/mitchell_rig.glb"
+  }
+ },
+ {
+  "id": "r_mitchell_b",
+  "endpoint": "meshy/rigging/multi-animation",
+  "input": {
+   "model_url": "@result:m_mitchell:model_glb.url",
+   "height_meters": 1.78,
+   "animation_action_ids": [
+    2,
+    285,
+    8,
+    366,
+    559,
+    337,
+    341
+   ]
+  },
+  "save": {
+   "rigged_character_glb.url": "char/mitchell_rig_b.glb"
+  }
+ },
+ {
+  "id": "r_madness_a",
+  "endpoint": "meshy/rigging/multi-animation",
+  "input": {
+   "model_url": "@result:m_madness:model_glb.url",
+   "height_meters": 2.45,
+   "animation_action_ids": [
+    12,
+    112,
+    119,
+    113,
+    509,
+    4,
+    242,
+    386,
+    178,
+    366
+   ]
+  },
+  "save": {
+   "rigged_character_glb.url": "char/madness_rig.glb"
+  }
+ },
+ {
+  "id": "r_madness_b",
+  "endpoint": "meshy/rigging/multi-animation",
+  "input": {
+   "model_url": "@result:m_madness:model_glb.url",
+   "height_meters": 2.45,
+   "animation_action_ids": [
+    336,
+    16,
+    8,
+    339
+   ]
+  },
+  "save": {
+   "rigged_character_glb.url": "char/madness_rig_b.glb"
+  }
+ }
+]

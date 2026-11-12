@@ -1,0 +1,362 @@
+[
+ {
+  "id": "g_bench",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_bench_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 9000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/bench.glb"
+  }
+ },
+ {
+  "id": "g_cabinet",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_cabinet_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 4000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/cabinet.glb"
+  }
+ },
+ {
+  "id": "g_cable_handle",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_cable_handle_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 4000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/cable_handle.glb"
+  }
+ },
+ {
+  "id": "g_ceiling_lamp",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_ceiling_lamp_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 5000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/ceiling_lamp.glb"
+  }
+ },
+ {
+  "id": "g_coach_ext",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_coach_ext_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 24000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/coach_ext.glb"
+  }
+ },
+ {
+  "id": "g_counterweight",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_counterweight_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 5000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/counterweight.glb"
+  }
+ },
+ {
+  "id": "g_crate",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_crate_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 2500,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/crate.glb"
+  }
+ },
+ {
+  "id": "g_door",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_door_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 3000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/door.glb"
+  }
+ },
+ {
+  "id": "g_heater",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_heater_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 6000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/heater.glb"
+  }
+ },
+ {
+  "id": "g_lantern",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_lantern_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 8000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/lantern.glb"
+  }
+ },
+ {
+  "id": "g_latch",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_latch_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 4000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/latch.glb"
+  }
+ },
+ {
+  "id": "g_locomotive",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_locomotive_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 40000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/locomotive.glb"
+  }
+ },
+ {
+  "id": "g_passenger_a",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_passenger_a_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 14000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/passenger_a.glb"
+  }
+ },
+ {
+  "id": "g_passenger_b",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_passenger_b_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 14000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/passenger_b.glb"
+  }
+ },
+ {
+  "id": "g_rack",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_rack_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 7000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/rack.glb"
+  }
+ },
+ {
+  "id": "g_release_pin",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_release_pin_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 5000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/release_pin.glb"
+  }
+ },
+ {
+  "id": "g_sample_case",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_sample_case_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 3000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/sample_case.glb"
+  }
+ },
+ {
+  "id": "g_sconce",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_sconce_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 3500,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/sconce.glb"
+  }
+ },
+ {
+  "id": "g_station_lantern",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_station_lantern_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 16000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/station_lantern.glb"
+  }
+ },
+ {
+  "id": "g_suitcase_a",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_suitcase_a_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 3500,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/suitcase_a.glb"
+  }
+ },
+ {
+  "id": "g_suitcase_b",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_suitcase_b_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 7000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/suitcase_b.glb"
+  }
+ },
+ {
+  "id": "g_valves",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_valves_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 7000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/valves.glb"
+  }
+ },
+ {
+  "id": "g_watch",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_watch_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 6000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/watch.glb"
+  }
+ },
+ {
+  "id": "g_wrench",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_wrench_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 4000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/wrench.glb"
+  }
+ }
+]

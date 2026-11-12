@@ -1,0 +1,86 @@
+[
+ {
+  "id": "p_passenger_c_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s male train passenger in a seated pose as if sitting on an invisible seat, thighs horizontal, hands resting on his knees, wearing a dark heavy wool overcoat and a flat cap pulled low, face in shadow under the cap brim, sombre. Photorealistic, physically based materials. The figure is isolated alone on a plain white seamless background with NO bench, NO chair and NO seat visible at all, soft even studio lighting, no harsh shadows, three-quarter front view, entire figure in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/passenger_c.png"
+  }
+ },
+ {
+  "id": "p_passenger_d_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s woman train passenger in a seated pose as if sitting on an invisible seat, thighs horizontal, a handbag held on her lap, wearing a dark wool coat with fur collar and a cloche hat, head bowed so the face is hidden. Photorealistic, physically based materials. The figure is isolated alone on a plain white seamless background with NO bench, NO chair and NO seat visible at all, soft even studio lighting, no harsh shadows, three-quarter front view, entire figure in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/passenger_d.png"
+  }
+ },
+ {
+  "id": "p_passenger_e_img",
+  "endpoint": "fal-ai/nano-banana-pro",
+  "input": {
+   "prompt": "A 1930s elderly male train passenger in a seated pose as if sitting on an invisible seat, thighs horizontal, slumped asleep with arms folded, wearing a worn grey tweed overcoat, scarf and a homburg hat tipped over his eyes. Photorealistic, physically based materials. The figure is isolated alone on a plain white seamless background with NO bench, NO chair and NO seat visible at all, soft even studio lighting, no harsh shadows, three-quarter front view, entire figure in frame.",
+   "aspect_ratio": "1:1",
+   "resolution": "1K",
+   "output_format": "png"
+  },
+  "save": {
+   "images.0.url": "concept/passenger_e.png"
+  }
+ },
+ {
+  "id": "g_passenger_c",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_passenger_c_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 9000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/passenger_c.glb"
+  }
+ },
+ {
+  "id": "g_passenger_d",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_passenger_d_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 9000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/passenger_d.glb"
+  }
+ },
+ {
+  "id": "g_passenger_e",
+  "endpoint": "meshy/v7.1/image-to-3d",
+  "input": {
+   "image_url": "@result:p_passenger_e_img:images.0.url",
+   "enable_pbr": true,
+   "target_polycount": 9000,
+   "topology": "triangle",
+   "symmetry_mode": "auto",
+   "should_remesh": true
+  },
+  "save": {
+   "model_glb.url": "prop/passenger_e.glb"
+  }
+ }
+]

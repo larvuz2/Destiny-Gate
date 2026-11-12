@@ -1,0 +1,4 @@
+[
+ {"id":"m_mitchell","endpoint":"meshy/v7.1/image-to-3d","input":{"image_url":"@result:c_mitchell_front:images.0.url","pose_mode":"a-pose","enable_pbr":true,"target_polycount":40000,"topology":"triangle","symmetry_mode":"auto","should_remesh":true},"save":{"model_glb.url":"char/mitchell_static.glb"}},
+ {"id":"m_madness","endpoint":"meshy/v7.1/image-to-3d","input":{"image_url":"@result:c_madness_front:images.0.url","pose_mode":"a-pose","enable_pbr":true,"target_polycount":40000,"topology":"triangle","symmetry_mode":"off","should_remesh":true},"save":{"model_glb.url":"char/madness_static.glb"}}
+]
