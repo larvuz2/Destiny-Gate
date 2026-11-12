@@ -13,6 +13,10 @@ not end, a baggage car, a coupling rig and a station that should not exist — b
 - **Cleverness defeats force.** Madness has no health bar. It shares your danger, and the level ends
   when you drop the floor out from under it.
 
+![Captures from the build](docs/shots/contact_sheet.jpg)
+
+*Captured from the running build with software rendering (no GPU). Real hardware renders the same scenes at full resolution.*
+
 ## Play
 
 ```bash

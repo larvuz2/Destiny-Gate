@@ -1,13 +1,15 @@
 {
   "name": "destiny-gate",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "smoke": "node tools/smoke.mjs"
+    "test:play": "node tools/play.mjs",
+    "test:edge": "node tools/edge.mjs",
+    "shots": "node tools/hero.mjs high"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",

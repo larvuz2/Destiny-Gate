@@ -88,6 +88,9 @@ export class Game {
     this.cam.height = p.state === 'seated' ? 1.12 : p.state === 'standing' ? 1.12 + Math.min(1, p.stateT / 1.6) * 0.4 : p.state === 'knocked' ? 0.9 : 1.52;
     this.cam.arm = p.state === 'seated' ? 1.25 : 2.2;
     this.cam.update(dt, subject);
+    // when a wall forces the camera into Mitchell's shoulders, drop him out rather than fill the frame
+    const near = this.cam.override ? false : this.cam.armNow < (this._nearHide ? 0.66 : 0.52);
+    if (near !== this._nearHide) { this._nearHide = near; p.char.mesh.visible = !near; }
     this.applyAtmosphere(dt, zone);
     this.world.uniforms.scroll.value += dt * 0.02 * this.scrollRate;
     this.vfx.update(dt);

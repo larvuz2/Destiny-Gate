@@ -20,7 +20,7 @@ const PROPS = ['bench_lo', 'passenger_c', 'passenger_d', 'passenger_e', 'suitcas
 // Application shell: owns the top-level state machine (title · playing · paused · inspect · ended).
 class App {
   constructor() {
-    this.state = 'loading';
+    this.state = 'loading'; this.testMode = TEST;
     this.audio = new AudioDirector();
     this.ui = new UI(this);
     this.fadeK = 0;
@@ -69,8 +69,16 @@ class App {
     this.loop = new Loop({ step: (dt) => this.game.step(dt), render: (dt, a) => this.frame(dt, a) });
     this.loop.manual = TEST;
     this.wire();
-    // warm the pipeline so the first interactive frame does not hitch on shader compilation
+    // warm the pipeline: draw every zone and both characters once so no shader compiles mid-chase
     this.game.start('start');
+    ui.progress(1, 'Coupling the carriages');
+    await new Promise((r) => setTimeout(r, 30));
+    this.game.present(0, 1);
+    const mad = this.game.madness.char.root, wasMad = mad.visible;
+    for (const z of this.world.zones) z.group.visible = true;
+    mad.visible = true; mad.position.set(6, 0, 0);
+    try { gfx.render(); } catch (e) { console.warn('warm-up frame failed', e); }
+    mad.visible = wasMad; this.world.active = null;
     this.game.present(0, 1); gfx.render();
     ui.progress(1, 'Ready'); ui.loaded();
     if (Q.has('cp') || TEST) { this.begin(Q.get('cp') || 'start', true); }

@@ -145,10 +145,11 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--line);
 #end { pointer-events: auto; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 #end .wordmark { font-size: clamp(40px, 7vw, 110px); margin: 0 0 0.35em; opacity: 0; animation: markin 3.2s 0.2s var(--ease) forwards; }
 @keyframes markin { from { opacity: 0; letter-spacing: 0.34em; } to { opacity: 1; letter-spacing: 0.2em; } }
-#end .tag { font-family: var(--display); font-style: italic; color: var(--dim); font-size: 1.25em; opacity: 0; animation: fade 2s 2.4s forwards; animation-fill-mode: both; }
-#end .stats { margin-top: 2.6em; display: flex; gap: 3.4em; font-size: 0.66em; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); opacity: 0; animation: fade 2s 3.4s both; }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+#end .tag { font-family: var(--display); font-style: italic; color: var(--dim); font-size: 1.25em; opacity: 0; animation: appear 2s 2.4s both; }
+#end .stats { margin-top: 2.6em; display: flex; gap: 3.4em; font-size: 0.66em; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faint); opacity: 0; animation: appear 2s 3.4s both; }
 #end .stats b { display: block; font-family: var(--display); font-weight: 300; font-size: 2.6em; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 0.2em; }
-#end .row-actions { opacity: 0; animation: fade 2s 4.2s both; margin-top: 3em; }
+#end .row-actions { opacity: 0; animation: appear 2s 4.2s both; margin-top: 3em; }
 
 @media (max-height: 620px) { .wordmark { font-size: 44px; } #title .tag { display: none; } }
 @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01s !important; transition-duration: 0.01s !important; } }

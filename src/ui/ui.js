@@ -280,6 +280,11 @@ export class UI {
     const p = this.app.state === 'playing' && game.player.controllable ? t.prompt : null;
     const key = p ? `${p.action}:${p.text}` : '';
     if (key !== this._pk) { this._pk = key; if (p) el.prompt.innerHTML = `<span class="key">${this.bind(p.action)}</span><span>${p.text}</span>`; el.prompt.classList.toggle('on', !!p); }
+    // pointer capture can be lost (Esc, alt-tab): say how to get it back instead of feeling broken
+    const needLock = this.app.state === 'playing' && !this.app.input.locked && !this.app.testMode;
+    this._nl = needLock ? (this._nl || 0) + dt : 0;
+    if (this._nl > 0.6 && this.hintT <= 0) { this.el.hint.innerHTML = '<span>Click to capture the mouse</span>'; this.el.hint.classList.add('on'); this._lockHint = true; }
+    else if (this._lockHint && !needLock) { this._lockHint = false; this.el.hint.classList.remove('on'); }
     // objective: on request, after change, or persistent
     if (this.objT > 0) this.objT -= dt;
     el.objective.classList.toggle('on', !!d.objective && (this.objT > 0 || settings.access.persistentHints || this.app.input.held('objective')));

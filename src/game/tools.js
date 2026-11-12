@@ -206,7 +206,7 @@ export class ToolManager {
 
     // wrench in the right hand
     if (this.wrench) {
-      this.wrench.visible = this.has.wrench && p.state !== 'seated';
+      this.wrench.visible = this.has.wrench && p.state !== 'seated' && !g._nearHide;
       if (this.wrench.visible) {
         const hand = c.bones.RightHand;
         hand.getWorldPosition(this.wrench.position); hand.getWorldQuaternion(_q);
@@ -219,6 +219,7 @@ export class ToolManager {
     // lantern: hangs from the left hand, always upright
     if (this.lantern) {
       const vis = this.has.lantern && p.state !== 'seated';
+      this.lantern.children.forEach((ch) => { if (ch !== this.core) ch.visible = !g._nearHide; });
       this.lantern.visible = vis;
       if (vis) {
         const hand = c.bones.LeftHand;
