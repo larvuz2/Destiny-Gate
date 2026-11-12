@@ -57,7 +57,7 @@ export class Character {
     return c;
   }
 
-  _set(layer, name, { fade = 0.2, loop = true, speed = 1, restart = false } = {}) {
+  _set(layer, name, { fade = 0.2, loop = true, speed = 1, restart = false, at = 0 } = {}) {
     const set = this[layer];
     const next = set[name];
     if (!next) return;
@@ -67,7 +67,7 @@ export class Character {
     next.enabled = true;
     next.setLoop(loop ? THREE.LoopRepeat : THREE.LoopOnce, Infinity);
     next.clampWhenFinished = !loop;
-    if (prev !== next || restart) next.reset();
+    if (prev !== next || restart) { next.reset(); if (at) next.time = at; }
     next.setEffectiveWeight(1);
     if (prev && prev !== next) next.crossFadeFrom(prev, fade, false); else next.fadeIn(prev ? 0 : fade);
     next.play();

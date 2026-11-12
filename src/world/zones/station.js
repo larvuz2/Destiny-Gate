@@ -6,9 +6,9 @@ import { deck, railing, stilts } from '../industrial.js';
 // backdrop, a few colossal lanterns and viaducts, and one still-rolling coach with a lit window.
 export function buildStation(world) {
   const z = world.zone('S', 92.5, 140, 'S');
-  z.ceiling = 30; z.fog = { color: 0x0a1220, density: 0.011 }; z.exposure = 1.25;
-  z.hemi = { sky: 0x7f9cc8, ground: 0x1a2030, intensity: 1.0 };
-  z.key = { pos: [93.5, 7, 3], target: [97, 0, -0.5], intensity: 200, angle: 0.8, color: 0xcfe0ff, distance: 20 };
+  z.ceiling = 30; z.fog = { color: 0x0b1524, density: 0.0065 }; z.exposure = 1.0;
+  z.hemi = { sky: 0x8fb0dc, ground: 0x1c2638, intensity: 0.8 };
+  z.key = { pos: [93.5, 7, 3], target: [97, 0, -0.5], intensity: 160, angle: 0.8, color: 0xcfe0ff, distance: 20 };
   const b = z.b;
 
   // balcony
@@ -20,21 +20,22 @@ export function buildStation(world) {
   world.wall(99, 99.6, -4, 4, { h: 1.05, noSight: true });
   stilts(z, [[98.6, -3.2], [98.6, 3.2]], { depth: 30, mat: 'stone' });
 
-  // matte backdrop on a wide arc
+  // matte backdrop: one vast painted plane far beyond the balcony
   const mat = new THREE.MeshBasicNodeMaterial({ fog: false });
-  mat.colorNode = texture(world.tex.station, uv()).rgb.mul(0.85);
-  const arcGeo = new THREE.CylinderGeometry(150, 150, 130, 40, 1, true, Math.PI * 0.5 - 1.25, 2.5);
-  const back = new THREE.Mesh(arcGeo, mat);
-  back.scale.x = -1; back.rotation.y = Math.PI; back.position.set(110, 8, 0);
+  mat.colorNode = texture(world.tex.station, uv()).rgb.mul(0.9);
+  const back = new THREE.Mesh(new THREE.PlaneGeometry(560, 238), mat);
+  back.position.set(300, 26, 0); back.rotation.y = -Math.PI / 2;
   z.group.add(back);
+  const fill = new THREE.Mesh(new THREE.PlaneGeometry(700, 400), new THREE.MeshBasicNodeMaterial({ color: 0x05080e, fog: false }));
+  fill.position.set(310, -60, 0); fill.rotation.y = -Math.PI / 2; z.group.add(fill);
 
-  // colossal lanterns
-  const lanterns = [[118, -12, -16, 15], [132, -20, 20, 19], [150, -16, -6, 24], [124, -6, 34, 13]];
+  // colossal lanterns towering over the balcony (the 2009 pre-viz barrel lamps)
+  const lanterns = [[126, -18, -21, 34], [146, -26, 24, 50], [190, -34, -40, 78], [170, -20, 62, 46]];
   for (const [x, y, zz, h] of lanterns) {
     z.pb.place('station_lantern', x, y, zz, { size: h, fit: 'y', ry: x });
-    const glow = new THREE.Mesh(new THREE.SphereGeometry(h * 0.16, 12, 8), world.mats.emissive('stationGlow', 0xcfe2ff, 3.2));
-    glow.position.set(x, y + h * 0.66, zz); glow.scale.y = 1.35; z.group.add(glow);
-    world.lights.addLamp({ pos: [x, y + h * 0.66, zz], color: 0xcfe2ff, intensity: 2600, range: 70, zone: 'S', kind: 'station', priority: 400 });
+    const glow = new THREE.Mesh(new THREE.SphereGeometry(h * 0.15, 14, 10), world.mats.emissive('stationGlow', 0xcfe2ff, 0.8));
+    glow.position.set(x, y + h * 0.66, zz); glow.scale.y = 1.4; z.group.add(glow);
+    world.lights.addLamp({ pos: [x, y + h * 0.66, zz], color: 0xcfe2ff, intensity: 3600, range: 110, zone: 'S', kind: 'station', priority: 4000 });
   }
   // viaducts crossing in impossible directions: decks on arches with rails
   const via = (ax, ay, az, bx, by, bz, roll = 0) => {

@@ -42,7 +42,7 @@ export const ENV_SPECS = {
   ] },
   // Coach D: hard overhead tungsten / arc key, deep fill.
   D: { walls: 0x0b0c0e, floor: 0x050505, ceil: 0x0d0e10, cards: [
-    { pos: [0, 1.48, 0], w: 1.6, h: 1.6, color: 0xfff0d2, power: 16 }, { pos: [2.9, 0, 6], w: 3, h: 1.2, color: 0x2c3f55, power: 1.0 },
+    { pos: [0, 1.48, 0], w: 1.2, h: 1.2, color: 0xfff0d2, power: 9 }, { pos: [2.9, 0, 6], w: 3, h: 1.2, color: 0x2c3f55, power: 0.7 },
     { pos: [-2.9, -0.8, -5], w: 2, h: 0.6, color: 0xff5a2a, power: 1.5 },
   ] },
   // Threshold: expansive cool station glow, tiny warm pinlights.

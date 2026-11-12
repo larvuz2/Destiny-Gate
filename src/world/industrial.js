@@ -119,7 +119,7 @@ export function lightShaft(world, z, x, y0, y1, zz, { r0 = 0.25, r1 = 1.2, color
     const v = uv().y; // 1 at the top
     const fall = smoothstep(0.0, 0.25, v).mul(smoothstep(1.0, 0.55, v).mul(0.6).add(0.4));
     const streak = texture(world.tex.grime, vec2(uv().x.mul(2.0).add(time.mul(0.01)), v.mul(0.35))).r.mul(0.6).add(0.55);
-    mat.colorNode = vec3(new THREE.Color(color).r, new THREE.Color(color).g, new THREE.Color(color).b).mul(fall).mul(streak).mul(power * 0.16);
+    mat.colorNode = vec3(new THREE.Color(color).r, new THREE.Color(color).g, new THREE.Color(color).b).mul(fall).mul(streak).mul(power * 0.045);
     return mat;
   })());
   const mesh = new THREE.Mesh(geo, m);

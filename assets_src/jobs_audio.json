@@ -1,0 +1,1195 @@
+[
+ {
+  "id": "a_amb_train",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Interior of a 1930s steam train passenger carriage at night: steady rhythmic iron wheels clacking over rail joints, low rolling rumble, gentle wooden carriage creaks, roof resonance. No voices, no music.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 30
+  },
+  "save": {
+   "audio.url": "audio/amb_train.mp3"
+  }
+ },
+ {
+  "id": "a_amb_nightmare",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Interior of a train carriage in a nightmare: slowed, stretched, irregular asymmetric wheel impacts, hollow metallic resonance, deep sub rumble, long unnatural reverb, eerie. No voices, no music.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 30
+  },
+  "save": {
+   "audio.url": "audio/amb_nightmare.mp3"
+  }
+ },
+ {
+  "id": "a_amb_arena",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Vast iron machine hall inside a speeding train: heavy sub-bass engine drone, wind howling through steel shafts, tensioned cables groaning, distant pistons. No voices, no music.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 30
+  },
+  "save": {
+   "audio.url": "audio/amb_arena.mp3"
+  }
+ },
+ {
+  "id": "a_amb_passengers",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Very quiet murmur of a few passengers in a 1930s railway carriage, an occasional cough, wool coat rustle, a newspaper page, faint glass rattle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 22
+  },
+  "save": {
+   "audio.url": "audio/amb_passengers.mp3"
+  }
+ },
+ {
+  "id": "a_amb_whispers",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Isolated ghostly whispers echoing in an empty railway carriage, unintelligible, sparse, breathy, filtered as if through a wall.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 22
+  },
+  "save": {
+   "audio.url": "audio/amb_whispers.mp3"
+  }
+ },
+ {
+  "id": "a_amb_station",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Enormous cavernous underground railway station at night: deep reverberant wind, very distant trains passing on many levels, far steam hiss, lonely vast space.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 30
+  },
+  "save": {
+   "audio.url": "audio/amb_station.mp3"
+  }
+ },
+ {
+  "id": "a_amb_abyss",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Wind rushing up from a deep chasm beneath a speeding train, steel rails screaming far below, hollow roar.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 22
+  },
+  "save": {
+   "audio.url": "audio/amb_abyss.mp3"
+  }
+ },
+ {
+  "id": "a_m0",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Sparse, fragile solo felt piano motif of a few notes with long silences, distant bowed glass harmonics, very quiet and melancholic, intimate, 1930s memory, slow, no drums.",
+   "music_length_ms": 70000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m0.mp3"
+  }
+ },
+ {
+  "id": "a_m1",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Dark ambient horror underscore: detuned string drone, a slow irregular low pulse slightly out of time like a limping train rhythm, uneasy, restrained, no melody, no drums.",
+   "music_length_ms": 70000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m1.mp3"
+  }
+ },
+ {
+  "id": "a_m2",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Suspense underscore: sustained dissonant string clusters, sparse metallic percussive ghosts and scrapes, quiet, searching, tense, lots of space, no melody.",
+   "music_length_ms": 70000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m2.mp3"
+  }
+ },
+ {
+  "id": "a_m3",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Horror chase music: short driving rhythmic low string ostinato, pounding processed mechanical percussion like train pistons, rising insistent propulsion, aggressive but not loud in the high frequencies, no melody.",
+   "music_length_ms": 60000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m3.mp3"
+  }
+ },
+ {
+  "id": "a_m4",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Tense anticipation: held high string harmonics with no bass at all, a ticking pocket watch rhythm, breath held, very sparse, waiting.",
+   "music_length_ms": 50000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m4.mp3"
+  }
+ },
+ {
+  "id": "a_m5",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Aftermath: begins with near silence and a low sustained note, then a subdued tender theme on low strings and felt piano slowly emerges, bittersweet, mysterious, unresolved, cinematic, slow.",
+   "music_length_ms": 60000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/m5.mp3"
+  }
+ },
+ {
+  "id": "a_title",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Main title theme for a noir psychological horror set in 1932: slow mournful solo cello melody over a distant slow train rhythm in low strings, lonely muted trumpet answer, cinematic, restrained, haunting.",
+   "music_length_ms": 80000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/title.mp3"
+  }
+ },
+ {
+  "id": "a_sting",
+  "endpoint": "elevenlabs/music/v2.5",
+  "input": {
+   "prompt": "Dramatic end title sting: deep brass and low strings swell into one majestic ominous chord with a reversed steam whistle, then a long dark reverb tail.",
+   "music_length_ms": 14000,
+   "force_instrumental": true,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/sting.mp3"
+  }
+ },
+ {
+  "id": "a_fs_wood_1",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on old wooden floorboards, dry, close microphone, slight creak.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_wood_1.mp3"
+  }
+ },
+ {
+  "id": "a_fs_wood_2",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on old wooden floorboards, dry, close microphone, slight creak.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_wood_2.mp3"
+  }
+ },
+ {
+  "id": "a_fs_wood_3",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on old wooden floorboards, dry, close microphone, slight creak.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_wood_3.mp3"
+  }
+ },
+ {
+  "id": "a_fs_wood_4",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on old wooden floorboards, dry, close microphone, slight creak.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_wood_4.mp3"
+  }
+ },
+ {
+  "id": "a_fs_metal_1",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on an iron grating walkway, slight metallic ring, close microphone.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_metal_1.mp3"
+  }
+ },
+ {
+  "id": "a_fs_metal_2",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on an iron grating walkway, slight metallic ring, close microphone.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_metal_2.mp3"
+  }
+ },
+ {
+  "id": "a_fs_metal_3",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on an iron grating walkway, slight metallic ring, close microphone.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_metal_3.mp3"
+  }
+ },
+ {
+  "id": "a_fs_metal_4",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on an iron grating walkway, slight metallic ring, close microphone.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/fs_metal_4.mp3"
+  }
+ },
+ {
+  "id": "a_fs_stone_1",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on stone, reverberant, close.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.7
+  },
+  "save": {
+   "audio.url": "audio/fs_stone_1.mp3"
+  }
+ },
+ {
+  "id": "a_fs_stone_2",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A single leather-soled shoe footstep on stone, reverberant, close.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.7
+  },
+  "save": {
+   "audio.url": "audio/fs_stone_2.mp3"
+  }
+ },
+ {
+  "id": "a_cloth",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Short wool coat rustle as a man moves.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/cloth.mp3"
+  }
+ },
+ {
+  "id": "a_door_open",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Old wooden railway carriage door unlatching with a brass handle and creaking open.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2
+  },
+  "save": {
+   "audio.url": "audio/door_open.mp3"
+  }
+ },
+ {
+  "id": "a_door_forced",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A metal latch smashed off by a heavy iron wrench, then a wooden door bursts open.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.8
+  },
+  "save": {
+   "audio.url": "audio/door_forced.mp3"
+  }
+ },
+ {
+  "id": "a_door_slam",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Heavy iron door slamming shut and a bolt dropping, reverberant.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2
+  },
+  "save": {
+   "audio.url": "audio/door_slam.mp3"
+  }
+ },
+ {
+  "id": "a_stretch",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A wooden door frame stretching impossibly: deep groaning timber under strain, creaking, eerie rising pitch.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 3
+  },
+  "save": {
+   "audio.url": "audio/stretch.mp3"
+  }
+ },
+ {
+  "id": "a_lamp_flicker",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Electric lamp buzzing and flickering, filament crackle, unstable current.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.6
+  },
+  "save": {
+   "audio.url": "audio/lamp_flicker.mp3"
+  }
+ },
+ {
+  "id": "a_blackout",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Electric lights cutting out with a heavy clunk and a dying hum, then silence.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.6
+  },
+  "save": {
+   "audio.url": "audio/blackout.mp3"
+  }
+ },
+ {
+  "id": "a_crack_tick_1",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One single sharp brittle crack of wood splintering, dry, short.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/crack_tick_1.mp3"
+  }
+ },
+ {
+  "id": "a_crack_tick_2",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One single sharp brittle crack of wood splintering, dry, short.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/crack_tick_2.mp3"
+  }
+ },
+ {
+  "id": "a_crack_tick_3",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One single sharp brittle crack of wood splintering, dry, short.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/crack_tick_3.mp3"
+  }
+ },
+ {
+  "id": "a_crack_stress",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Hairline cracks spreading slowly through a floor: quiet creaking, fibres tearing, dust trickling.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 3
+  },
+  "save": {
+   "audio.url": "audio/crack_stress.mp3"
+  }
+ },
+ {
+  "id": "a_crack_critical",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A rapid chain of sharp tearing cracks, wood and metal splitting apart, urgent, accelerating.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.4
+  },
+  "save": {
+   "audio.url": "audio/crack_critical.mp3"
+  }
+ },
+ {
+  "id": "a_collapse_wood",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Wooden bridge planks snapping and collapsing into a deep chasm, debris tumbling away into the distance.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 3.5
+  },
+  "save": {
+   "audio.url": "audio/collapse_wood.mp3"
+  }
+ },
+ {
+  "id": "a_collapse_metal",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An iron floor grating breaking loose and crashing down a deep shaft, metal debris clattering away below.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 4
+  },
+  "save": {
+   "audio.url": "audio/collapse_metal.mp3"
+  }
+ },
+ {
+  "id": "a_luggage_fall",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Heavy trunks and suitcases dropping from a height and smashing through wooden planks.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.5
+  },
+  "save": {
+   "audio.url": "audio/luggage_fall.mp3"
+  }
+ },
+ {
+  "id": "a_settle",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A strained structure settling back: fading creaks, electrical hum returning, relief.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.5
+  },
+  "save": {
+   "audio.url": "audio/settle.mp3"
+  }
+ },
+ {
+  "id": "a_watch_cast",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A pocket watch mainspring winding very fast, then a clear resonant brass chime.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.3
+  },
+  "save": {
+   "audio.url": "audio/watch_cast.mp3"
+  }
+ },
+ {
+  "id": "a_watch_rewind",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Time rewinding: a reversed wound-spring motif, reversed ticking and a shimmering backwards whoosh, magical but mechanical.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.6
+  },
+  "save": {
+   "audio.url": "audio/watch_rewind.mp3"
+  }
+ },
+ {
+  "id": "a_watch_tick",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Steady close mechanical pocket watch ticking, slightly filtered.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 4
+  },
+  "save": {
+   "audio.url": "audio/watch_tick.mp3"
+  }
+ },
+ {
+  "id": "a_watch_noecho",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A dull hollow muffled thud of a clock mechanism failing to catch, short, empty.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.8
+  },
+  "save": {
+   "audio.url": "audio/watch_noecho.mp3"
+  }
+ },
+ {
+  "id": "a_watch_ready",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A soft brass click and one clear watch tick.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/watch_ready.mp3"
+  }
+ },
+ {
+  "id": "a_watch_expire",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Watch ticking that accelerates rapidly then a sharp spring snap.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.4
+  },
+  "save": {
+   "audio.url": "audio/watch_expire.mp3"
+  }
+ },
+ {
+  "id": "a_wrench_swing",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A heavy iron tool swung fast through the air, short whoosh.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/wrench_swing.mp3"
+  }
+ },
+ {
+  "id": "a_wrench_clank",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A heavy iron wrench striking a steel railing, loud ringing clank.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.2
+  },
+  "save": {
+   "audio.url": "audio/wrench_clank.mp3"
+  }
+ },
+ {
+  "id": "a_wrench_latch",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An iron lever being forced with a heavy wrench: weighty groan of leverage then a crisp metallic click.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.6
+  },
+  "save": {
+   "audio.url": "audio/wrench_latch.mp3"
+  }
+ },
+ {
+  "id": "a_wrench_body",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A heavy blunt thud of iron hitting thick padded canvas, muffled impact.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.8
+  },
+  "save": {
+   "audio.url": "audio/wrench_body.mp3"
+  }
+ },
+ {
+  "id": "a_pin_pull",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A thick steel pin dragged out of its housing with grinding metal, then a deep clunk as a massive counterweight shifts on chains overhead.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 3.2
+  },
+  "save": {
+   "audio.url": "audio/pin_pull.mp3"
+  }
+ },
+ {
+  "id": "a_cable_pull",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A steel cable yanked hard through a pulley with a ratchet.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.2
+  },
+  "save": {
+   "audio.url": "audio/cable_pull.mp3"
+  }
+ },
+ {
+  "id": "a_cable_return",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A spring-loaded handle snapping back with a short ratchet rattle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.0
+  },
+  "save": {
+   "audio.url": "audio/cable_return.mp3"
+  }
+ },
+ {
+  "id": "a_locked",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A stiff iron handle that will not move, short dull metallic strain and thunk.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.9
+  },
+  "save": {
+   "audio.url": "audio/locked.mp3"
+  }
+ },
+ {
+  "id": "a_lantern_pick",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A brass and glass lantern lifted off an iron hook, soft liquid slosh.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.9
+  },
+  "save": {
+   "audio.url": "audio/lantern_pick.mp3"
+  }
+ },
+ {
+  "id": "a_lantern_hiss",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Liquid glass hiss: a steady airy shimmering sizzle, soft.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 4
+  },
+  "save": {
+   "audio.url": "audio/lantern_hiss.mp3"
+  }
+ },
+ {
+  "id": "a_lantern_deplete",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A hiss thinning out and sputtering away to nothing.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.2
+  },
+  "save": {
+   "audio.url": "audio/lantern_deplete.mp3"
+  }
+ },
+ {
+  "id": "a_pickup",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A small brass object picked up, soft metallic handling.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.6
+  },
+  "save": {
+   "audio.url": "audio/pickup.mp3"
+  }
+ },
+ {
+  "id": "a_paper",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An old paper photograph picked up and turned over.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.8
+  },
+  "save": {
+   "audio.url": "audio/paper.mp3"
+  }
+ },
+ {
+  "id": "a_reveal",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A soft glassy shimmer as something hidden becomes visible, subtle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.2
+  },
+  "save": {
+   "audio.url": "audio/reveal.mp3"
+  }
+ },
+ {
+  "id": "a_mad_ticks",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Three staggered sharp ticks of wood and metal, then a slow breath-like compression of thick heavy cloth, ominous warning.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.4
+  },
+  "save": {
+   "audio.url": "audio/mad_ticks.mp3"
+  }
+ },
+ {
+  "id": "a_mad_breath",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Muffled laboured breathing through thick canvas, leather straps and buckles creaking, distant muffled trapped voices, horror.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 8
+  },
+  "save": {
+   "audio.url": "audio/mad_breath.mp3"
+  }
+ },
+ {
+  "id": "a_mad_charge",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A short buckle-release snap followed by a sharp narrow inhale of breath, attack anticipation.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.9
+  },
+  "save": {
+   "audio.url": "audio/mad_charge.mp3"
+  }
+ },
+ {
+  "id": "a_mad_lunge",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An explosive violent rush of heavy cloth and whipping leather straps.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.8
+  },
+  "save": {
+   "audio.url": "audio/mad_lunge.mp3"
+  }
+ },
+ {
+  "id": "a_mad_scream",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An anguished scream muffled inside a padded cell, canvas-muffled, inhuman, horror creature.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.6
+  },
+  "save": {
+   "audio.url": "audio/mad_scream.mp3"
+  }
+ },
+ {
+  "id": "a_mad_step_1",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One heavy padded footstep with a leather strap dragging and a buckle jingle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.7
+  },
+  "save": {
+   "audio.url": "audio/mad_step_1.mp3"
+  }
+ },
+ {
+  "id": "a_mad_step_2",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One heavy padded footstep with a leather strap dragging and a buckle jingle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.7
+  },
+  "save": {
+   "audio.url": "audio/mad_step_2.mp3"
+  }
+ },
+ {
+  "id": "a_mad_step_3",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One heavy padded footstep with a leather strap dragging and a buckle jingle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.7
+  },
+  "save": {
+   "audio.url": "audio/mad_step_3.mp3"
+  }
+ },
+ {
+  "id": "a_mad_stagger",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A pained muffled grunt and buckles rattling as a large creature staggers.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.3
+  },
+  "save": {
+   "audio.url": "audio/mad_stagger.mp3"
+  }
+ },
+ {
+  "id": "a_mad_stumble",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A large creature scrabbling for footing as a metal grate gives way, straps flailing, grate clanging.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2
+  },
+  "save": {
+   "audio.url": "audio/mad_stumble.mp3"
+  }
+ },
+ {
+  "id": "a_mad_gate",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "An iron cage gate being wrenched and torn open, screeching metal.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.8
+  },
+  "save": {
+   "audio.url": "audio/mad_gate.mp3"
+  }
+ },
+ {
+  "id": "a_mad_fall",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A muffled scream falling away down a deep shaft and transforming into a reversed steam train whistle.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 4.5
+  },
+  "save": {
+   "audio.url": "audio/mad_fall.mp3"
+  }
+ },
+ {
+  "id": "a_mad_pound",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "Something very heavy pounding three times on an iron door from the other side, reverberant.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 2.4
+  },
+  "save": {
+   "audio.url": "audio/mad_pound.mp3"
+  }
+ },
+ {
+  "id": "a_hurt",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A man grunting in pain as he is knocked to the floor.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.0
+  },
+  "save": {
+   "audio.url": "audio/hurt.mp3"
+  }
+ },
+ {
+  "id": "a_breath_hurt",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A frightened man's shaky laboured breathing, close.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 5
+  },
+  "save": {
+   "audio.url": "audio/breath_hurt.mp3"
+  }
+ },
+ {
+  "id": "a_fall_yell",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A man's short yell as he falls, fading downward.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 1.5
+  },
+  "save": {
+   "audio.url": "audio/fall_yell.mp3"
+  }
+ },
+ {
+  "id": "a_tension",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A tensioned steel cable and iron structure creaking under extreme load, critical metallic strain.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": true,
+   "duration_seconds": 4
+  },
+  "save": {
+   "audio.url": "audio/tension.mp3"
+  }
+ },
+ {
+  "id": "a_collapse_trap",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One decisive enormous hybrid orchestral and mechanical impact: a massive iron structure and counterweight collapsing, deep sub boom, long dark tail.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 7
+  },
+  "save": {
+   "audio.url": "audio/collapse_trap.mp3"
+  }
+ },
+ {
+  "id": "a_victory_whistle",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A reversed steam train whistle swelling and fading into a distant empty station platform.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 5
+  },
+  "save": {
+   "audio.url": "audio/victory_whistle.mp3"
+  }
+ },
+ {
+  "id": "a_ui_hover",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "One very soft small brass tick.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/ui_hover.mp3"
+  }
+ },
+ {
+  "id": "a_ui_select",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A soft mechanical click of a railway ticket punch.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 0.5
+  },
+  "save": {
+   "audio.url": "audio/ui_select.mp3"
+  }
+ },
+ {
+  "id": "a_ui_start",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "input": {
+   "text": "A distant steam train whistle and a long release of steam, lonely.",
+   "prompt_influence": 0.4,
+   "output_format": "mp3_44100_128",
+   "loop": false,
+   "duration_seconds": 3.5
+  },
+  "save": {
+   "audio.url": "audio/ui_start.mp3"
+  }
+ },
+ {
+  "id": "a_vo_mitchell",
+  "endpoint": "elevenlabs/tts/eleven-v4",
+  "input": {
+   "text": "[whispering] I have to get home. [pause] I have to stop myself.",
+   "voice": "Brian",
+   "stability": 0.35,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/vo_mitchell.mp3"
+  }
+ },
+ {
+  "id": "a_vo_conductor_1",
+  "endpoint": "elevenlabs/tts/eleven-v4",
+  "input": {
+   "text": "Next station... Harlan Junction. Next station.",
+   "voice": "Bill",
+   "stability": 0.5,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/vo_conductor_1.mp3"
+  }
+ },
+ {
+  "id": "a_vo_conductor_2",
+  "endpoint": "elevenlabs/tts/eleven-v4",
+  "input": {
+   "text": "Next station... next... station...",
+   "voice": "Bill",
+   "stability": 0.3,
+   "output_format": "mp3_44100_128"
+  },
+  "save": {
+   "audio.url": "audio/vo_conductor_2.mp3"
+  }
+ }
+]

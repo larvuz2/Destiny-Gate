@@ -7,8 +7,8 @@ export const A = { x0: 0, x1: 20 };
 
 export function buildCoachA(world) {
   const z = world.zone('A', -2.2, 21.2, 'A');
-  z.ceiling = SHELL.CROWN; z.fog = { color: 0x0b0806, density: 0.012 }; z.exposure = 1.0;
-  z.hemi = { sky: 0x9aa6bd, ground: 0x4a3524, intensity: 0.7 };
+  z.ceiling = SHELL.CROWN; z.fog = { color: 0x0b0806, density: 0.012 }; z.exposure = 0.82;
+  z.hemi = { sky: 0x8fa0c0, ground: 0x33261a, intensity: 0.4 };
   const sh = coachShell(world, z, { x0: A.x0, x1: A.x1, bay0: 0.5, bays: 10, glass: world.glass('A', 0.22), ext: world.exterior(0.3) });
   world.floor(-2.2, 21.2, -SHELL.W, SHELL.W, 0, { surface: 'wood' });
   endWall(world, z, A.x0, 1);
@@ -21,7 +21,7 @@ export function buildCoachA(world) {
   // seats (generated bench), two per row; seat banks are low cover, not sight blockers
   for (let r = 0; r < 18; r++) {
     const x = 1.45 + r * 0.98;
-    for (const s of [-1, 1]) z.pb.place('bench', x, 0, s * 0.94, { size: 0.98, fit: 'x', ry: Math.PI / 2, stretch: [1, 1.26, 1.12] });
+    for (const s of [-1, 1]) z.pb.place('bench_lo', x, 0, s * 0.94, { size: 0.98, fit: 'x', ry: Math.PI / 2, stretch: [1, 1.26, 1.12] });
   }
   for (const s of [-1, 1]) world.wall(1.0, 19.0, s * 0.43, s * SHELL.W, { h: 1.1, tag: 'seats' });
 

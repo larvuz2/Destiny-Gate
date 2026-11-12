@@ -134,12 +134,16 @@ export class World {
 
   zoneAt(x) { return this.zones.find((z) => x >= z.x0 && x < z.x1) || (x < this.zones[0].x0 ? this.zones[0] : this.zones.at(-1)); }
 
-  /** Show only the current zone and its neighbours; swap IBL. */
-  setActiveZone(z) {
+  /** Show the current zone, plus a neighbour only when the player is close to the shared doorway. */
+  setActiveZone(z, x = null) {
+    const i = this.zones.indexOf(z);
+    this.zones.forEach((o, k) => {
+      let vis = k === i;
+      if (Math.abs(k - i) === 1 && x !== null) vis = Math.abs(x - (k > i ? z.x1 : z.x0)) < (o.id === 'S' ? 40 : 11);
+      o.group.visible = vis;
+    });
     if (this.active === z) return;
     this.active = z;
-    const i = this.zones.indexOf(z);
-    this.zones.forEach((o, k) => { o.group.visible = Math.abs(k - i) <= 1; });
     this.gfx.scene.environment = z.env;
   }
 

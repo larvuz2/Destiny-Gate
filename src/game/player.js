@@ -6,7 +6,9 @@ export const TUNE = {
   walk: 2.3, sprint: 4.0, focusWalk: 1.5, accel: 22, turn: 11, radius: 0.27,
   regen: 18, knockTime: 1.15, getupTime: 1.6, hitInvuln: 2.9,
 };
-const CLIPS = ['idle', 'walk', 'run', 'sit', 'sit_to_stand', 'swing', 'pull', 'hit', 'knockdown', 'getup', 'dead', 'fall', 'open_door', 'alert'];
+// 'alert' is the neutral standing stance (the stock idle turns to look over its shoulder)
+const IDLE = 'alert';
+const CLIPS = ['walk', 'run', 'sit', 'sit_to_stand', 'swing', 'hit', 'knockdown', 'getup', 'dead', 'fall', 'open_door', 'alert'];
 
 const angDiff = (a, b) => { let d = a - b; while (d > Math.PI) d -= Math.PI * 2; while (d < -Math.PI) d += Math.PI * 2; return d; };
 
@@ -31,7 +33,7 @@ export class Player {
     this.pos.set(x, this.game.col.floorY(x, z) ?? 0, z); this.prev.copy(this.pos); this.vel.set(0, 0, 0);
     this.yaw = yaw; this.state = state; this.stateT = 0; this.speed = 0;
     this.damaged = false; this.damageT = 0; this.invuln = 0; this.action = null; this.fallV = 0; this.frozen = false;
-    this.char?.play(state === 'seated' ? 'sit' : 'idle', { fade: 0 });
+    this.char?.play(state === 'seated' ? 'sit' : IDLE, { fade: 0 });
   }
 
   setState(s) { this.state = s; this.stateT = 0; }
@@ -80,7 +82,7 @@ export class Player {
     switch (this.state) {
       case 'seated':
         if (!this.frozen && (input.axis().y !== 0 || input.axis().x !== 0 || input.take('interact'))) {
-          this.setState('standing'); this.char.play('sit_to_stand', { loop: false, fade: 0.25, speed: 1.25 });
+          this.setState('standing'); this.char.play('sit_to_stand', { loop: false, fade: 0.3, speed: 1.45, at: 2.7 }); // the clip's first half is still seated
           bus.emit('player.stand');
         }
         return;
@@ -89,14 +91,14 @@ export class Player {
         const k = Math.min(1, this.stateT / 1.9);
         this.pos.z += (0 - this.pos.z) * Math.min(1, dt * 2.2 * k * 2);
         this.pos.x += 0.28 * dt * (k > 0.35 ? 1 : 0);
-        if (this.stateT > 1.9) { this.setState('normal'); this.char.play('idle', { fade: 0.35 }); }
+        if (this.stateT > 1.9) { this.setState('normal'); this.char.play(IDLE, { fade: 0.35 }); }
         return;
       }
       case 'knocked':
         if (this.stateT > TUNE.knockTime) { this.setState('getup'); this.char.play('getup', { loop: false, fade: 0.2, speed: this.char.durations.getup / TUNE.getupTime }); }
         return;
       case 'getup':
-        if (this.stateT > TUNE.getupTime) { this.setState('normal'); this.char.play('idle', { fade: 0.25 }); }
+        if (this.stateT > TUNE.getupTime) { this.setState('normal'); this.char.play(IDLE, { fade: 0.25 }); }
         return;
       case 'dead': case 'cinematic':
         return;
@@ -129,7 +131,7 @@ export class Player {
 
     // --- animation ------------------------------------------------------------------------------
     const c = this.char;
-    const loco = this.speed < 0.3 ? 'idle' : this.speed > TUNE.walk + 0.5 ? 'run' : 'walk';
+    const loco = this.speed < 0.3 ? IDLE : this.speed > TUNE.walk + 0.5 ? 'run' : 'walk';
     const rate = loco === 'walk' ? THREE.MathUtils.clamp(this.speed / 1.55, 0.6, 1.7) : loco === 'run' ? THREE.MathUtils.clamp(this.speed / 3.7, 0.8, 1.25) : 1;
     c.playLower(loco, { fade: 0.18, speed: rate });
     if (this.action) {

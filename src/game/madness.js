@@ -12,7 +12,7 @@ export const MAD = {
   attackRange: 2.5, anticipation: 0.72, lunge: 0.32, lungeDist: 2.8, hitRadius: 0.95, recover: 1.25,
   notice: 0.9, memory: 1.3, loseMin: 4, loseMax: 7, attackCooldown: 1.0,
 };
-export const CLIPS = ['idle', 'walk', 'stalk', 'stagger', 'sprint', 'attack', 'charged', 'scream', 'hit', 'fall', 'breathe_look', 'scan'];
+export const CLIPS = ['walk', 'stalk', 'stagger', 'sprint', 'charged', 'scream', 'hit', 'fall', 'breathe_look', 'scan'];
 const HIST = Math.round(4 / TICK);
 const angDiff = (a, b) => { let d = a - b; while (d > Math.PI) d -= Math.PI * 2; while (d < -Math.PI) d += Math.PI * 2; return d; };
 
@@ -32,7 +32,11 @@ export class Madness {
     bus.on('player.footstep', (e) => this.hear(e.x, e.z, e.sprint ? MAD.hearSprint : MAD.hearWalk, 'step'));
   }
 
-  attach(char) { this.char = char; char.root.visible = false; this.game.gfx.scene.add(char.root); }
+  attach(char) {
+    this.char = char; char.root.visible = false; this.game.gfx.scene.add(char.root);
+    // bone canvas, bruised grey — never a white glow (GDD 12.3 Threat palette)
+    char.material.color.set(0x8f877c); char.material.roughness = 1;
+  }
   rand() { this.seed = (Math.imul(this.seed, 1664525) + 1013904223) >>> 0; return this.seed / 4294967296; }
 
   spawn(x, z, yaw, state = 'patrol', zone = 'C') {
@@ -270,11 +274,11 @@ export class Madness {
       this._animSpeed = this.speed;
       const changed = st !== this._animState; this._animState = st;
       switch (st) {
-        case 'patrol': A(this.speed > 0.1 ? 'walk' : 'idle', { fade: 0.4, speed: 1.05 }); break;
-        case 'search': A(this.speed > 0.1 ? 'stalk' : 'breathe_look', { fade: 0.35, speed: 1.25 }); break;
+        case 'patrol': A(this.speed > 0.1 ? 'stalk' : 'breathe_look', { fade: 0.45, speed: 1.3 }); break;
+        case 'search': A(this.speed > 0.1 ? 'stagger' : 'breathe_look', { fade: 0.35, speed: 1.5 }); break;
         case 'look': A('scan', { fade: 0.5 }); break;
         case 'notice': if (changed) A('scream', { fade: 0.15, loop: false, speed: 1.6 }); break;
-        case 'hunt': A(this.speed > 0.1 ? 'sprint' : 'idle', { fade: 0.2, speed: this.speed < 2.4 ? 0.62 : 0.86 }); break;
+        case 'hunt': A(this.speed > 0.1 ? 'sprint' : 'breathe_look', { fade: 0.2, speed: this.speed < 2.4 ? 0.62 : 0.86 }); break;
         case 'windup': if (changed) A('charged', { fade: 0.1, loop: false, speed: c.durations.charged / (MAD.anticipation + MAD.lunge + MAD.recover * 0.8) }); break;
         case 'stagger': if (changed) A('hit', { fade: 0.08, loop: false, speed: c.durations.hit / 1.5 }); break;
         case 'shield': if (changed) A('hit', { fade: 0.08, loop: false, speed: 1.5 }); break;
@@ -287,6 +291,6 @@ export class Madness {
     const L = this.game.lights.chest;
     c.bones.Spine01.getWorldPosition(L.position);
     L.position.x += Math.sin(this.yaw) * 0.35; L.position.z += Math.cos(this.yaw) * 0.35;
-    L.intensity = 5 + Math.sin(this.game.t * 3.1) * 1.5 + (st === 'windup' ? 14 * Math.min(1, this.stateT / MAD.anticipation) : 0);
+    L.intensity = 0.5 + Math.sin(this.game.t * 3.1) * 0.15 + (st === 'windup' ? 2.5 * Math.min(1, this.stateT / MAD.anticipation) : 0);
   }
 }

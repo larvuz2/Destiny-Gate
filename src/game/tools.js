@@ -66,14 +66,16 @@ export class ToolManager {
     this.prompt = use ? { action: 'interact', text: use.prompt, it: use } : wr ? { action: 'wrench', text: wr.prompt, it: wr } : null;
 
     // --- interact (E) ----------------------------------------------------------------------------
-    if (can && input.take('interact') && use) { bus.emit('player.interact_success', { id: use.id, it: use }); use.onUse?.(use); }
+    if (can && input.take('interact') && use) { this.reach(use.x, use.y ?? 1.1, use.z, 0.55); bus.emit('player.interact_success', { id: use.id, it: use }); use.onUse?.(use); }
 
     // --- wrench (LMB) ----------------------------------------------------------------------------
     if (can && this.has.wrench && this.swingT < 0 && !this.focusing && this.castT < 0 && input.take('wrench')) {
       this.swingT = 0; this.swingDone = false; this.swingTarget = wr;
-      const clip = wr?.pull ? 'pull' : 'swing', dur = wr?.pull ? 0.95 : TOOL.swing;
-      this.swingDur = dur; this.contactAt = wr?.pull ? 0.45 : TOOL.contact[0];
-      p.startAction(wr?.pull ? 'pull' : 'swing', clip, dur + 0.15, p.char.durations[clip] / (dur + 0.25));
+      // mechanisms: a braced pull with the hand brought to the fitting (IK); otherwise a swing
+      const mech = !!wr, clip = mech ? 'open_door' : 'swing', dur = mech ? 0.9 : TOOL.swing;
+      this.swingDur = dur; this.contactAt = mech ? 0.42 : TOOL.contact[0];
+      p.startAction(mech ? 'pull' : 'swing', clip, dur + 0.15, mech ? 1.4 : p.char.durations[clip] / (dur + 0.25));
+      if (mech) this.reach(wr.x, wr.y ?? 1.1, wr.z, dur + 0.1);
       if (wr) p.yaw = Math.atan2(wr.x - p.pos.x, wr.z - p.pos.z);
       bus.emit('wrench.swing', { pull: !!wr?.pull });
     } else input.pressed.delete('wrench');
@@ -120,7 +122,7 @@ export class ToolManager {
     if (can && this.has.watch && input.take('watch')) {
       if (this.watchCd <= 0 && this.castT < 0 && this.swingT < 0) {
         this.castT = 0; this._aim();
-        p.startAction('cast', 'alert', TOOL.watchCast + 0.35, 1);
+        p.startAction('cast', 'open_door', TOOL.watchCast + 0.35, 1.2);
         bus.emit('watch.cast', { x: this.castTarget.x, z: this.castTarget.z });
       } else if (this.watchCd > 0) bus.emit('watch.denied', { cd: this.watchCd });
     }
@@ -144,6 +146,9 @@ export class ToolManager {
     }
     if (this.field) { this.field.t += dt; if (this.field.t >= this.field.dur) { if (this.field.echo) bus.emit('watch.rewind_end', {}); this.field = null; } }
   }
+
+  /** Bring the right hand to a point for a moment (GDD 15.1: hands meet interactables). */
+  reach(x, y, z, dur) { this.reachT = 0; this.reachDur = dur; (this.reachTo ||= new THREE.Vector3()).set(x, y, z); }
 
   /** Target the nearest eligible surface the player is roughly facing; otherwise the floor ahead. */
   _aim() {
@@ -187,13 +192,25 @@ export class ToolManager {
       ik.pole.set(-rx * 0.6, -1, -rz * 0.6).normalize();
     }
 
+    // right arm: reach toward the thing being used
+    const ikr = c.ik.right;
+    if (this.reachDur > 0 && this.reachT < this.reachDur && p.state === 'normal') {
+      this.reachT += dt;
+      const k = this.reachT / this.reachDur;
+      ikr.w = Math.sin(Math.min(1, k) * Math.PI) ** 0.6;
+      // stop a little short so the tool, not the wrist, meets the fitting
+      _v.copy(this.reachTo).sub(root); const dist = Math.hypot(_v.x, _v.z) || 1; const s2 = Math.max(0, dist - 0.22) / dist;
+      ikr.target.set(root.x + _v.x * s2, this.reachTo.y, root.z + _v.z * s2);
+      ikr.pole.set(rx * 0.7, -1, rz * 0.7).normalize();
+    } else ikr.w = 0;
+
     // wrench in the right hand
     if (this.wrench) {
       this.wrench.visible = this.has.wrench && p.state !== 'seated';
       if (this.wrench.visible) {
         const hand = c.bones.RightHand;
         hand.getWorldPosition(this.wrench.position); hand.getWorldQuaternion(_q);
-        this.wrench.quaternion.copy(_q).multiply(this._wq ||= new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, Math.PI / 2)));
+        this.wrench.quaternion.copy(_q).multiply(this._wq ||= new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -Math.PI / 2)));
         // grip sits ~30% along the shaft
         _v.set(0, 0.5 * 0.78 - 0.14, 0).applyQuaternion(_q); this.wrench.position.add(_v);
         _v.set(0, -0.02, 0.03).applyQuaternion(_q); this.wrench.position.add(_v);
@@ -217,10 +234,10 @@ export class ToolManager {
         const flick = 0.92 + 0.08 * Math.sin(g.t * 13.7) * Math.sin(g.t * 7.3);
         const level = 0.35 + 0.65 * this.reservoir;
         L.lanternFill.position.copy(this.lanternPos);
-        L.lanternFill.intensity = (5 + this.focusK * 2) * flick * level;
+        L.lanternFill.intensity = (2.4 + this.focusK * 1.4) * flick * level;
         L.lantern.position.copy(this.lanternPos);
         L.lantern.target.position.copy(this.lanternPos).addScaledVector(this.lanternDir, 4);
-        L.lantern.intensity = this.focusK * 260 * flick * (0.4 + 0.6 * this.reservoir);
+        L.lantern.intensity = this.focusK * 110 * flick * (0.4 + 0.6 * this.reservoir);
         this.core.scale.setScalar((0.55 + 0.45 * this.reservoir) / this.lantern.scale.x * (1 + this.focusK * 0.4));
         this.coreMat.color.setRGB(1.0 * (1 + this.focusK * 3), 0.78 * (1 + this.focusK * 3), 0.5 * (1 + this.focusK * 2));
       } else { L.lanternFill.intensity = 0; L.lantern.intensity = 0; }

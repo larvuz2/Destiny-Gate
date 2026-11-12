@@ -12,8 +12,8 @@ export const C = {
 export function buildCoachC(world) {
   const z = world.zone('C', 49.6, 75.5, 'C');
   const { x0, x1, W, H, CROWN, GAP0, GAP1, GRILLE, BLOCK0, BLOCK1, RING1, NECK } = C;
-  z.ceiling = CROWN - 0.3; z.fog = { color: 0x05070a, density: 0.045 }; z.exposure = 1.25;
-  z.hemi = { sky: 0x5c7896, ground: 0x241c14, intensity: 0.75 }; z.keyHeight = 3.6;
+  z.ceiling = CROWN - 0.3; z.fog = { color: 0x05070a, density: 0.045 }; z.exposure = 1.0;
+  z.hemi = { sky: 0x4f6f92, ground: 0x1c1610, intensity: 0.42 }; z.keyHeight = 3.6;
   const b = z.b;
 
   gangway(world, z, 48.62, 50.38, { top: 2.6 });
@@ -138,7 +138,9 @@ export function buildCoachC(world) {
   hangLamp(world, z, 52.2, CROWN - 0.15, 0, { len: 1.5, intensity: 30 });
   lightShaft(world, z, 52.2, 0.02, CROWN - 1.7, 0, { r0: 0.2, r1: 1.5, power: 0.5 });
   hangLamp(world, z, 60.0, CROWN - 0.2, -0.6, { len: 1.6, intensity: 24 });
-  z.revealLamp = hangLamp(world, z, 64.0, CROWN - 0.15, 0, { len: 1.55, intensity: 34, swing: 0.16, priority: 40 });
+  z.revealLamp = hangLamp(world, z, 64.0, CROWN - 0.15, 0, { len: 1.55, intensity: 110, range: 9, swing: 0.16, priority: 40 });
+  // cold rim from behind the tableau so the silhouette separates from the cage (GDD 12.3 negative space)
+  world.lights.addLamp({ pos: [66.2, 2.4, 0], color: 0x8fb4dc, intensity: 70, range: 6, zone: 'C', kind: 'rim', priority: 30 });
   lightShaft(world, z, 65.0, 0.02, CROWN - 1.6, 0, { r0: 0.3, r1: 1.7, power: 0.7, color: 0xffd2a0 });
   hangLamp(world, z, 68.2, CROWN - 0.5, 2.8, { len: 1.3, intensity: 18, range: 7 });
   hangLamp(world, z, 68.2, CROWN - 0.5, -2.8, { len: 1.3, intensity: 18, range: 7 });

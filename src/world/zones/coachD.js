@@ -13,9 +13,9 @@ export const D = {
 export function buildCoachD(world) {
   const z = world.zone('D', 75.5, 92.5, 'D');
   const { x0, x1, W, H, CROWN, PIT0, PIT1, G0, G1, GZ, BRZ, WK } = D;
-  z.ceiling = CROWN - 0.5; z.fog = { color: 0x040506, density: 0.03 }; z.exposure = 1.2;
-  z.hemi = { sky: 0x5a6a80, ground: 0x1a1612, intensity: 0.6 };
-  z.key = { pos: [84, 6.4, 0.6], target: [84, 0, 0], intensity: 420, angle: 0.78, color: 0xfff0d8, distance: 16 };
+  z.ceiling = CROWN - 0.5; z.fog = { color: 0x040506, density: 0.034 }; z.exposure = 1.0;
+  z.hemi = { sky: 0x4a5a72, ground: 0x15110e, intensity: 0.3 };
+  z.key = { pos: [84, 6.4, 0.6], target: [84, 0, 0], intensity: 260, angle: 0.72, color: 0xfff0d8, distance: 16 };
   const b = z.b;
 
   gangway(world, z, 74.62, 76.38, { top: 2.6 });
@@ -105,13 +105,13 @@ export function buildCoachD(world) {
   world.wall(91.35, 92.3, 3.85, 4.8, { h: 1.0 });
 
   // --- lamps: hard overhead key, deep side fill -------------------------------------------------
-  z.arc = [hangLamp(world, z, 82.6, CROWN - 0.3, 0, { len: 1.2, intensity: 60, range: 13, color: 0xfff1dc, emissive: 12, priority: 60 }),
-           hangLamp(world, z, 85.4, CROWN - 0.3, 0, { len: 1.2, intensity: 60, range: 13, color: 0xfff1dc, emissive: 12, priority: 60 })];
+  z.arc = [hangLamp(world, z, 82.6, CROWN - 0.3, 0, { len: 1.2, intensity: 60, range: 12, color: 0xfff1dc, emissive: 12, priority: 60 }),
+           hangLamp(world, z, 85.4, CROWN - 0.3, 0, { len: 1.2, intensity: 60, range: 12, color: 0xfff1dc, emissive: 12, priority: 60 })];
   lightShaft(world, z, 84, 0.0, CROWN - 1.6, 0, { r0: 0.5, r1: 2.6, power: 0.75, color: 0xfff1dc });
-  hangLamp(world, z, 78, 4.4, 0, { len: 1.2, intensity: 22, range: 8 });
-  hangLamp(world, z, 85, 4.2, -4.3, { len: 1.3, intensity: 18, range: 6.5 });
-  hangLamp(world, z, 84.5, 4.2, 4.4, { len: 1.3, intensity: 18, range: 6.5 });
-  hangLamp(world, z, 91, 4.4, 0, { len: 1.2, intensity: 22, range: 8, color: 0xbfd6ff });
+  hangLamp(world, z, 78, 4.4, 0, { len: 1.2, intensity: 26, range: 8 });
+  hangLamp(world, z, 85, 4.2, -4.3, { len: 1.3, intensity: 22, range: 6.5 });
+  hangLamp(world, z, 84.5, 4.2, 4.4, { len: 1.3, intensity: 22, range: 6.5 });
+  hangLamp(world, z, 91, 4.4, 0, { len: 1.2, intensity: 26, range: 8, color: 0xbfd6ff });
   world.lights.addLamp({ pos: [84, -2.2, 0], color: 0x35557a, intensity: 30, range: 11, zone: 'D', kind: 'fill' });
 
   // --- markers ---------------------------------------------------------------------------------------

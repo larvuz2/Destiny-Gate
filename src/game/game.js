@@ -9,6 +9,7 @@ import { ToolManager } from './tools.js';
 import { Madness, CLIPS as MAD_CLIPS } from './madness.js';
 import { Director } from './director.js';
 import { PropBatch } from '../world/props.js';
+import { Vfx } from '../gfx/vfx.js';
 
 // Simulation root. `step` runs at the fixed tick; `present` runs per rendered frame.
 export class Game {
@@ -34,6 +35,7 @@ export class Game {
     this.madness.attach(madness);
     this.director = new Director(this);
     this.director.setup();
+    this.vfx = new Vfx(this);
     this.gfx.scene.fog = new THREE.FogExp2(0x000000, 0.01);
     this.gfx.scene.background = new THREE.Color(0x000000);
   }
@@ -81,13 +83,14 @@ export class Game {
     this.madness.present(dt, alpha);
     const subject = p.char.root.position;
     const zone = this.world.zoneAt(subject.x);
-    this.world.setActiveZone(zone);
+    this.world.setActiveZone(zone, subject.x);
     this.cam.ceiling = () => zone.ceiling || 2.6;
     this.cam.height = p.state === 'seated' ? 1.12 : p.state === 'standing' ? 1.12 + Math.min(1, p.stateT / 1.6) * 0.4 : p.state === 'knocked' ? 0.9 : 1.52;
     this.cam.arm = p.state === 'seated' ? 1.25 : 2.2;
     this.cam.update(dt, subject);
     this.applyAtmosphere(dt, zone);
     this.world.uniforms.scroll.value += dt * 0.02 * this.scrollRate;
+    this.vfx.update(dt);
     this.fracture.present(this.t, this.tools.has.lantern ? this.tools.lanternPos : null, this.tools.focusK);
     this.focusPos.copy(subject);
     this.lights.update(dt, this.focusPos, (l) => Math.abs(l.pos.x - subject.x) < 16 || l.kind === 'station');

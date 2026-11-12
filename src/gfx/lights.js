@@ -4,6 +4,8 @@ import * as THREE from 'three/webgpu';
 // recompiles mid-chase. Authored lamp fixtures are virtual; a small pool of real point lights is
 // handed to the fixtures nearest the camera, cross-faded to hide reassignment.
 const POOL = 6;
+// master trims — authored fixture values stay readable, the rig is balanced here
+const LAMP_GAIN = 0.2, KEY_GAIN = 0.36;
 const _v = new THREE.Vector3();
 
 export class LightRig {
@@ -40,7 +42,7 @@ export class LightRig {
     scene.add(this.lantern, this.lantern.target);
     this.lanternFill = new THREE.PointLight(0xffb866, 0, 4.5, 1.8);
     scene.add(this.lanternFill);
-    this.chest = new THREE.PointLight(0xcfe4ff, 0, 5, 1.8);
+    this.chest = new THREE.PointLight(0xcfe4ff, 0, 3.2, 2);
     scene.add(this.chest);
 
     this.keySpec = { color: new THREE.Color(0xffd9a8), intensity: 30, height: 2.55, lead: 0.25 };
@@ -99,7 +101,7 @@ export class LightRig {
       p.position.copy(l.pos);
       p.color.copy(l.color);
       p.distance = l.range;
-      p.intensity = l.intensity * l.level * p.userData.k;
+      p.intensity = l.intensity * LAMP_GAIN * l.level * p.userData.k;
     }
   }
 
@@ -111,7 +113,7 @@ export class LightRig {
       k.position.set(...fixed.pos); k.target.position.set(...fixed.target);
       k.color.set(fixed.color); k.angle = fixed.angle; k.distance = fixed.distance;
       k.shadow.camera.far = fixed.distance;
-      k.intensity += (fixed.intensity * level - k.intensity) * Math.min(1, dt * 10);
+      k.intensity += (fixed.intensity * KEY_GAIN * level - k.intensity) * Math.min(1, dt * 10);
       return;
     }
     k.angle = 1.05; k.distance = 9; k.shadow.camera.far = 9;
@@ -119,6 +121,6 @@ export class LightRig {
     k.position.lerp(_v, Math.min(1, dt * 4));
     k.target.position.set(subject.x + forwardX * 0.2, 0.6, subject.z);
     k.color.copy(s.color);
-    k.intensity += (s.intensity * level - k.intensity) * Math.min(1, dt * 10);
+    k.intensity += (s.intensity * KEY_GAIN * level - k.intensity) * Math.min(1, dt * 10);
   }
 }

@@ -1,0 +1,1 @@
+[{"id":"g_bench_lo","endpoint":"meshy/v7.1/image-to-3d","input":{"image_url":"@result:p_bench_img:images.0.url","enable_pbr":true,"target_polycount":2200,"topology":"triangle","symmetry_mode":"auto","should_remesh":true},"save":{"model_glb.url":"prop/bench_lo.glb"}}]

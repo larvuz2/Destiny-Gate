@@ -74,7 +74,7 @@ export class Director {
 
     // Coach C — lantern, watch, luggage, release
     const ln = pb.single('lantern', { size: 0.36, fit: 'y' }); ln.position.set(mk.lantern.x, mk.lantern.y - 0.36, mk.lantern.z); zone('C').add(ln); this.views.lantern = ln;
-    this.pickupGlow = new THREE.PointLight(0xffc477, 6, 4.5, 1.8); this.pickupGlow.position.set(mk.lantern.x, mk.lantern.y - 0.15, mk.lantern.z); zone('C').add(this.pickupGlow);
+    this.pickupGlow = new THREE.PointLight(0xffc477, 2.2, 4.5, 1.8); this.pickupGlow.position.set(mk.lantern.x, mk.lantern.y - 0.15, mk.lantern.z); zone('C').add(this.pickupGlow);
     this.its.lantern = w.interact({ id: 'lantern', x: mk.lantern.x - 0.1, z: mk.lantern.z - 0.1, r: 1.3, wide: true, prompt: 'Take the lantern', onUse: (it) => { it.enabled = false; ln.visible = false; this.pickupGlow.intensity = 0; g.tools.give('lantern'); this.hint('Hold to focus the lantern', 'lantern', 5); } });
     const wt = pb.single('watch', { size: 0.13, fit: 'y' }); wt.position.set(mk.watch.x - 0.02, mk.watch.y - 0.1, mk.watch.z); wt.rotation.y = -Math.PI / 2; zone('C').add(wt); this.views.watch = wt;
     this.its.watch = w.interact({ id: 'watch', x: mk.watch.x - 0.3, z: mk.watch.z, r: 1.3, wide: true, prompt: "Take the conductor's watch", onUse: (it) => { it.enabled = false; wt.visible = false; g.tools.give('watch'); this.setObjective('cross'); this.hint('Face the broken crossing and rewind it', 'watch', 7); } });
@@ -135,7 +135,7 @@ export class Director {
     // pickups / interactables
     const has = g.tools.has;
     this.views.wrench.visible = !has.wrench; this.its.wrench.enabled = !has.wrench;
-    this.views.lantern.visible = !has.lantern; this.its.lantern.enabled = !has.lantern; this.pickupGlow.intensity = has.lantern ? 0 : 6;
+    this.views.lantern.visible = !has.lantern; this.its.lantern.enabled = !has.lantern; this.pickupGlow.intensity = has.lantern ? 0 : 2.2;
     this.views.watch.visible = !has.watch; this.its.watch.enabled = !has.watch;
     this.its.latch.enabled = !f.latch;
     this.its.release.enabled = !f.released; this.its.release.hidden = true; this.its.release.reveal = 0;
@@ -288,10 +288,10 @@ export class Director {
     this.scriptThreat = null;
     // step clear of the hole, then tear the gate open
     if (k < 3.5) { m.pos.x -= 1.3 * dt; m.yaw = -Math.PI / 2; return; }
-    if (!f.revealWalk) { f.revealWalk = true; m.holdOnVoid = false; m.char.play('walk', { fade: 0.3, speed: 1.2 }); }
+    if (!f.revealWalk) { f.revealWalk = true; m.holdOnVoid = false; m.char.play('stalk', { fade: 0.3, speed: 1.5 }); }
     if (w.gate.target < 1) {
       const at = m.scriptMove(dt, 62.75, 0, 1.5);
-      if (at) { w.gate.burst += dt; if (!f.gateSnd) { f.gateSnd = true; bus.emit('world.gate', { x: 62, z: 0 }); m.char.play('attack', { fade: 0.15, speed: 1.4 }); }
+      if (at) { w.gate.burst += dt; if (!f.gateSnd) { f.gateSnd = true; bus.emit('world.gate', { x: 62, z: 0 }); m.char.play('charged', { fade: 0.15, speed: 1.6 }); }
         if (w.gate.burst > 1.15) { w.gate.target = 1; w.gate.burst = 0; m.nav.dirty = true; g.cam.kick(0.4); } }
       return;
     }

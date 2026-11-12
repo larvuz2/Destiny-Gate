@@ -30,8 +30,8 @@ export function gangway(world, z, x0, x1, { hw = 0.78, top = 2.3, floorMat = 'ir
 export function buildCoachB(world) {
   const z = world.zone('B', 21.2, 49.6, 'B');
   const { x0, x1, YS } = B;
-  z.ceiling = SHELL.CROWN * YS; z.fog = { color: 0x060a0c, density: 0.06 }; z.exposure = 1.15;
-  z.hemi = { sky: 0x6f9db0, ground: 0x1c2a2c, intensity: 1.1 };
+  z.ceiling = SHELL.CROWN * YS; z.fog = { color: 0x060a0c, density: 0.05 }; z.exposure = 1.0;
+  z.hemi = { sky: 0x5f9ab4, ground: 0x16262a, intensity: 0.8 };
   const mats = { wall: 'petrolWood', trim: 'petrolDark', ceil: 'ashCeiling', floor: 'coldFloor', metal: 'coldBrass', runner: null, pipe: 'ironGreen' };
 
   // --- vestibule A→B with the stretching doorway -------------------------------------------------
@@ -63,13 +63,13 @@ export function buildCoachB(world) {
 
   // lamps every two bays — identical through the looping section
   z.rhythm = [];
-  for (let i = 0; i < 7; i++) z.rhythm.push(ceilingLamp(world, z, sh.bayX(1 + i * 2) - 0.0, sh.CROWN - 0.005, 0, { color: 0xffc27a, intensity: 26, range: 9, brass: 'coldBrass' }));
+  for (let i = 0; i < 7; i++) z.rhythm.push(ceilingLamp(world, z, sh.bayX(1 + i * 2) - 0.0, sh.CROWN - 0.005, 0, { color: 0xe9d6ae, intensity: 17, range: 10, brass: 'coldBrass' }));
   // sliding cold sidelight outside the windows
-  z.sidelight = world.lights.addLamp({ pos: [x0 + 4, 1.9, SHELL.W - 0.25], color: 0x7fb7d1, intensity: 16, range: 7, zone: 'B', kind: 'side', priority: 30 });
+  z.sidelight = world.lights.addLamp({ pos: [x0 + 4, 1.9, SHELL.W - 0.25], color: 0x7fb7d1, intensity: 34, range: 8, zone: 'B', kind: 'side', priority: 30 });
 
   // seats: pitch is a quarter of the loop length so every module is identical
   const tint = new THREE.Color(0x8fa0a0);
-  for (let x = x0 + 0.95 / 2 + 0.3; x < B.SEATS_END; x += 0.95) for (const s of [-1, 1]) z.pb.place('bench', x, 0, s * 0.94, { size: 0.98, fit: 'x', ry: Math.PI / 2, stretch: [1, 1.26 * 1.12, 1.12], tint });
+  for (let x = x0 + 0.95 / 2 + 0.3; x < B.SEATS_END; x += 0.95) for (const s of [-1, 1]) z.pb.place('bench_lo', x, 0, s * 0.94, { size: 0.98, fit: 'x', ry: Math.PI / 2, stretch: [1, 1.26 * 1.12, 1.12], tint });
   for (const s of [-1, 1]) world.wall(x0 + 0.3, B.SEATS_END + 0.25, s * 0.43, s * SHELL.W, { h: 1.2, tag: 'seats' });
 
   // skewed door frames straddling the aisle — free-standing portals that lean a little more each time
@@ -86,7 +86,7 @@ export function buildCoachB(world) {
   // --- the open end: wrench bracket, fracture demonstration, jammed door -------------------------
   const E0 = B.SEATS_END + 0.25;
   // toppled benches and luggage where the seating gives out
-  z.pb.place('bench', 42.9, 0.42, -1.02, { size: 0.98, fit: 'x', ry: 1.2, rz: 1.35, stretch: [1, 1.4, 1.12], tint });
+  z.pb.place('bench_lo', 42.9, 0.42, -1.02, { size: 0.98, fit: 'x', ry: 1.2, rz: 1.35, stretch: [1, 1.4, 1.12], tint });
   z.pb.place('suitcase_b', 47.6, 0, -1.0, { size: 0.9, fit: 'y', ry: 0.5 });
   z.pb.place('suitcase_a', 47.5, 0, 1.05, { size: 0.5, fit: 'y', ry: -0.3 });
   world.wall(47.15, 48.05, -1.45, -0.6, { h: 1.0 }); world.wall(47.2, 47.9, 0.75, 1.45, { h: 0.6 });
