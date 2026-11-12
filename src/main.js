@@ -82,7 +82,10 @@ class App {
     const canvas = this.gfx.renderer.domElement;
     canvas.addEventListener('click', () => { if (this.state === 'playing') this.input.requestLock(); });
     addEventListener('pointerdown', () => { this.audio.unlock(); if (!TEST) this.audio.loadRest(); }, { capture: true });
-    addEventListener('keydown', () => this.audio.unlock(), { capture: true });
+    addEventListener('keydown', (e) => {
+      this.audio.unlock();
+      if (e.code === 'F11' || (e.code === 'KeyF' && e.altKey)) { e.preventDefault(); if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen?.().catch(() => {}); }
+    }, { capture: true });
     // Escape always releases capture and opens Pause; focus loss pauses automatically (GDD 4.1)
     bus.on('input.lock', (locked) => { if (!locked && this.state === 'playing' && !TEST) this.pause(); });
     bus.on('input.escape', () => { if (this.state === 'playing') this.pause(); });
@@ -206,6 +209,6 @@ if (!VIEW && app.game) {
     tp(x, z = 0) { const p = game.player; p.pos.set(x, 0, z); p.prev.copy(p.pos); },
     state() { const p = game.player, m = game.madness, d = game.director; return { t: +game.t.toFixed(2), p: [+p.pos.x.toFixed(2), +p.pos.z.toFixed(2)], ps: p.state, dmg: p.damaged, m: m.active ? [+m.pos.x.toFixed(2), +m.pos.z.toFixed(2), m.state] : null, cp: d.cp, obj: d.objKey, beat: d.beat, music: d.music, tools: { ...game.tools.has }, panels: Object.fromEntries(game.fracture.panels.map((q) => [q.id, q.state])), trap: d.trap, won: d.won, app: app.state }; },
   };
-  if (TEST) window.__dg.bot = await import('./debug/bot.js');
+  if (TEST) { window.__dg.bot = await import('./debug/bot.js'); window.__dg.edge = await import('./debug/edge.js'); }
   window.__ready = true;
 }

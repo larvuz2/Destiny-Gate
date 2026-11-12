@@ -87,12 +87,17 @@ export class Director {
       const ex = bridge.addExtra(m, m.position.clone());
       ex.spinInit = [(ox + 0.3) * 2, 0.5, (oz - 0.2) * 3];
     });
-    this.its.release = w.interact({ id: 'release', kind: 'wrench', hidden: true, x: mk.release.x - 0.2, z: mk.release.z, r: 1.6, prompt: 'Throw the release', onReveal: () => { bus.emit('subtitle', { text: 'A release, behind the canvas.', dur: 3 }); },
+    const flap = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.7), w.mats.get('canvas'));
+    flap.geometry.translate(0, -0.35, 0);
+    flap.position.set(mk.release.x - 0.07, 1.62, mk.release.z); flap.rotation.y = -Math.PI / 2; flap.castShadow = true;
+    zone('C').add(flap); this.views.flap = flap; this.flapK = 0;
+    w.dynamic.push({ update: (dt) => { const want = this.its.release.hidden ? Math.min(0.12, (this.its.release.reveal || 0) * 0.12) : 1; this.flapK += (want - this.flapK) * Math.min(1, dt * 5); flap.rotation.x = 0; flap.rotation.z = this.flapK * 2.3; flap.position.y = 1.62 + this.flapK * 0.05; } });
+    this.its.release = w.interact({ id: 'release', kind: 'wrench', hidden: true, x: mk.release.x - 0.2, y: mk.release.y, z: mk.release.z, r: 1.6, prompt: 'Throw the release', onReveal: () => { bus.emit('subtitle', { text: 'A release, behind the canvas.', dur: 3 }); },
       onWrench: (it) => { it.enabled = false; this.flags.released = true; w.exitBar.target = 1; const dr = w.doors.C_exit; dr.locked = false; dr.target = 1; bus.emit('door.open', { id: 'C_exit', x: dr.x, z: 0, forced: true }); this.setObjective('out'); } });
 
     // Coach D — release pin and cable handle
-    this.its.pin = w.interact({ id: 'pin', kind: 'wrench', pull: true, x: mk.pin.x, z: mk.pin.z - 0.2, r: 1.5, prompt: 'Pull the release pin', onWrench: (it) => this._prime(it) });
-    this.its.handle = w.interact({ id: 'handle', kind: 'wrench', pull: true, x: mk.handle.x, z: mk.handle.z + 0.2, r: 1.5, prompt: 'Pull the cable', onWrench: () => this._pullCable() });
+    this.its.pin = w.interact({ id: 'pin', kind: 'wrench', pull: true, x: mk.pin.x, y: 0.45, z: mk.pin.z - 0.2, r: 1.5, prompt: 'Pull the release pin', onWrench: (it) => this._prime(it) });
+    this.its.handle = w.interact({ id: 'handle', kind: 'wrench', pull: true, x: mk.handle.x, y: 1.15, z: mk.handle.z + 0.2, r: 1.5, prompt: 'Pull the cable', onWrench: () => this._pullCable() });
     this.passengers = g.world.passengers;
   }
 

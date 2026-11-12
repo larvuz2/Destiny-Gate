@@ -103,7 +103,7 @@ export class UI {
           <button data-a="credits">Credits</button>
         </nav>
       </div>
-      <div class="foot">${icon('headphones')}Headphones recommended<br>Vertical slice &nbsp;·&nbsp; Keyboard &amp; mouse</div>
+      <div class="foot">${icon('headphones')}Headphones recommended<br>Alt + F &nbsp;fullscreen &nbsp;·&nbsp; Keyboard &amp; mouse or gamepad</div>
     </div>`);
     this.menuNav(el);
     el.addEventListener('click', (e) => {
