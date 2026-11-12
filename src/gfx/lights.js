@@ -104,12 +104,21 @@ export class LightRig {
   }
 
   /** Key light follows the subject; `level` lets threat stages dim it. */
-  updateKey(dt, subject, forwardX = 1, level = 1) {
-    const s = this.keySpec;
-    _v.set(subject.x - forwardX * s.lead, s.height, subject.z * 0.35);
-    this.key.position.lerp(_v, Math.min(1, dt * 4));
-    this.key.target.position.set(subject.x + forwardX * 0.2, 0.6, subject.z);
-    this.key.color.copy(s.color);
-    this.key.intensity += (s.intensity * level - this.key.intensity) * Math.min(1, dt * 10);
+  updateKey(dt, subject, forwardX = 1, level = 1, fixed = null) {
+    const s = this.keySpec, k = this.key;
+    if (fixed) {
+      // authored hero rig (Coach D, threshold): a stationary overhead key
+      k.position.set(...fixed.pos); k.target.position.set(...fixed.target);
+      k.color.set(fixed.color); k.angle = fixed.angle; k.distance = fixed.distance;
+      k.shadow.camera.far = fixed.distance;
+      k.intensity += (fixed.intensity * level - k.intensity) * Math.min(1, dt * 10);
+      return;
+    }
+    k.angle = 1.05; k.distance = 9; k.shadow.camera.far = 9;
+    _v.set(subject.x - forwardX * s.lead, Math.min(s.height, (this.ceiling || 3) - 0.2), subject.z * 0.35);
+    k.position.lerp(_v, Math.min(1, dt * 4));
+    k.target.position.set(subject.x + forwardX * 0.2, 0.6, subject.z);
+    k.color.copy(s.color);
+    k.intensity += (s.intensity * level - k.intensity) * Math.min(1, dt * 10);
   }
 }

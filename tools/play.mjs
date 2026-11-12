@@ -1,0 +1,21 @@
+// Headless full-run QA: node tools/play.mjs [from] [extra query]
+import { createRequire } from 'node:module';
+import { execSync } from 'node:child_process';
+const require = createRequire(execSync('npm root -g').toString().trim() + '/');
+const { chromium } = require('playwright');
+const [from = 'start', query = '', base = 'http://localhost:5173'] = process.argv.slice(2);
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const page = await browser.newPage({ viewport: { width: 640, height: 360 } });
+const errors = [];
+page.on('console', (m) => m.type() === 'error' && errors.push(m.text().slice(0, 300)));
+page.on('pageerror', (e) => errors.push('[pageerror] ' + String(e.stack || e).slice(0, 700)));
+await page.goto(`${base}/?test&preset=low&cp=${from}&${query}`);
+await page.waitForFunction(() => window.__ready, null, { timeout: 180000 });
+const t0 = Date.now();
+const res = await page.evaluate((from) => window.__dg.bot.fullRun(window.__dg, { from }), from);
+console.log(res.log.join('\n'));
+console.log(res.ok ? `\nPASS in ${res.state.t}s sim (${Date.now() - t0} ms wall)` : `\nFAIL: ${res.error}`);
+console.log(JSON.stringify(res.state));
+if (errors.length) console.log('ERRORS:\n' + [...new Set(errors)].join('\n'));
+await browser.close();
+process.exit(res.ok && !errors.length ? 0 : 1);
