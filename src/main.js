@@ -111,7 +111,7 @@ class App {
     this.loop.simPaused = true; this.input.enabled = false; this.input.releaseLock();
     this.game.start('start'); this.game.director.fadeTarget = 0; this.gfx.grade.fade.value = first ? 1 : this.gfx.grade.fade.value;
     this.titleT = 0; this.fadeTo = 0;
-    this.audio.silenceGame?.();
+    this.audio.silenceGame?.(); this.audio.pause(false);
     this.ui.title();
   }
 

@@ -63,7 +63,7 @@ export class AudioDirector {
   /** Must be called from a user gesture at least once (browser audio policy). */
   unlock() {
     if (!this.ctx) this._build();
-    if (this.ctx.state === 'suspended') this.ctx.resume();
+    if (this.ctx.state !== 'running') this.ctx.resume().catch(() => {});   // also covers Safari's 'interrupted'
   }
 
   _build() {
@@ -105,7 +105,7 @@ export class AudioDirector {
   applySettings() {
     if (!this.ctx) return;
     const a = settings.audio, t = this.ctx.currentTime;
-    this.master.gain.setTargetAtTime(a.master, t, 0.05); this.music.gain.setTargetAtTime(a.music, t, 0.05);
+    this.master.gain.setTargetAtTime(this.paused ? 0 : a.master, t, 0.05); this.music.gain.setTargetAtTime(a.music, t, 0.05);
     this.sfx.gain.setTargetAtTime(a.sfx, t, 0.05); this.dialogue.gain.setTargetAtTime(a.dialogue, t, 0.05);
     const L = this.limiter, tight = a.reducedRange || settings.access.reducedIntensity;
     L.threshold.value = tight ? -26 : -10; L.ratio.value = tight ? 7 : 4; L.knee.value = 14; L.attack.value = 0.004; L.release.value = 0.22;
@@ -124,7 +124,8 @@ export class AudioDirector {
   loadRest() { return (this._rest ||= (async () => { for (let i = 0; i < REST.length; i += 6) await Promise.all(REST.slice(i, i + 6).map((s) => this._load(s))); this.ready = true; })()); }
 
   // --- playback ------------------------------------------------------------------------------------
-  loop(name, opts) { return (this.loops[name] ||= new Loop(this, name, opts?.dest || this.beds, opts)); }
+  /** key is 'group:stem' (e.g. 'mus:m1'); the stem after the colon is the buffer that plays. */
+  loop(key, opts) { return (this.loops[key] ||= new Loop(this, key.slice(key.indexOf(':') + 1), opts?.dest || this.beds, opts)); }
 
   /** One-shot. pos: {x, y?, z} for spatial; opts: vol, rate, bus, lp (occlusion), dry. */
   play(name, pos = null, { vol = 1, rate = 1, bus: to = 'sfx', lp = 0, when = 0, echo = false } = {}) {
@@ -163,8 +164,8 @@ export class AudioDirector {
       g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
       o.connect(g); g.connect(this.sfx); o.start(t); o.stop(t + dur + 0.02);
     };
-    if (kind === 'hover') blip(740, 0, 0.045, 0.05);
-    else { blip(620, 0, 0.06, 0.08); blip(930, 0.055, 0.09, 0.07); }
+    if (kind === 'hover') blip(740, 0, 0.05, 0.11);
+    else { blip(620, 0, 0.07, 0.16); blip(930, 0.06, 0.1, 0.14); }
   }
   caption(text, dur) { const now = performance.now(); if (now - (this.lastCap[text] || 0) < 2500) return; this.lastCap[text] = now; bus.emit('caption', { text, dur }); }
   /** Briefly pull music and beds down so a hazard cue is unmistakable. */
@@ -183,7 +184,14 @@ export class AudioDirector {
     const rv = REVERB[key[0]] || REVERB.A;
     for (const [k, v] of Object.entries(this.verbs)) v.g.gain.setTargetAtTime(k === rv[0] ? rv[1] : 0, this.ctx.currentTime, 0.6);
   }
-  pause(on) { if (!this.ctx) return; if (on) this.ctx.suspend(); else this.ctx.resume(); }
+  /** Pause by fading the master bus. The context keeps running: browsers (Safari especially) only
+   *  allow resume() inside a click, and Escape — the key that un-pauses — does not count as one. */
+  pause(on) {
+    if (!this.ctx) return;
+    this.paused = on;
+    this.master.gain.cancelScheduledValues(this.ctx.currentTime);
+    this.master.gain.setTargetAtTime(on ? 0 : settings.audio.master, this.ctx.currentTime, 0.08);
+  }
   silenceGame() { for (const k of ['mad_breath', 'tension', 'lantern_hiss', 'breath_hurt', 'watch_tick']) this.loops['fx:' + k]?.set(0, 0.3); }
 
   // --- per-frame: listener, zone beds, continuous threat layers -----------------------------------

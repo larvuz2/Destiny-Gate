@@ -100,6 +100,12 @@ Real-time regression with audio on (inspect card, carriage transition):
 node tools/rt_bugs.mjs
 ```
 
+Audio signal probe (measures real output level on title, in game, paused, resumed):
+
+```bash
+node tools/rt_audio.mjs
+```
+
 Hero-shot captures on any preset (GDD 12.5 / 13.6):
 
 ```bash

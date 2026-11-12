@@ -57,7 +57,7 @@ export class UI {
   }
 
   applyScale() { document.documentElement.style.setProperty('--ui-scale', settings.access.uiScale); }
-  sfx(name) { this.app.audio?.ui(name); }
+  sfx(name) { if (name === 'hover' && !this.app.audio?.ctx) return; this.app.audio?.ui(name); }
   bind(action) { return codeLabel(settings.controls.bindings[action]); }
 
   // ----------------------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ export class UI {
       const i = items.indexOf(document.activeElement), n = (i + (e.code === 'ArrowDown' || e.code === 'KeyS' ? 1 : -1) + items.length) % items.length;
       items[i < 0 ? 0 : n].focus(); this.sfx('hover'); e.preventDefault();
     }
-    if (e.code === 'Escape' && this.screen.dataset.back) { e.preventDefault(); e.stopImmediatePropagation(); this[this.screen.dataset.back](); }
+    if (e.code === 'Escape' && this.screen.dataset.back) { e.preventDefault(); e.stopImmediatePropagation(); this[this.screen.dataset.back](); return; }
     if (this.screen.id === 'inspect' && (e.code === 'KeyE' || e.code === 'Enter' || e.code === 'Space' || e.code === settings.controls.bindings.interact)) this.closeInspect();
   }
 
