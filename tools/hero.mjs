@@ -31,6 +31,8 @@ const SHOTS = {
   ui_title: `dg.app.toTitle(); document.querySelector('#title').classList.add('in'); for (let i = 0; i < 14; i++) dg.app.frame(0.2, 1); dg.gfx.renderer._nodes.nodeFrame.update(); dg.app.frame(0.03, 1); await new Promise((r) => setTimeout(r, 2500));`,
   ui_inspect: `dg.app.begin('start', true); dg.step(200); dg.game.director.inspect('photo'); ${settle} await new Promise((r) => setTimeout(r, 900));`,
   ui_end: `dg.app.begin('cp2', true); dg.step(30); dg.bus.emit('game.end', { time: 742, deaths: 2, watchUses: 5 }); await new Promise((r) => setTimeout(r, 6500));`,
+  idle: `dg.app.begin('cp2', true); dg.tp(78.2, 1.0); dg.step(90); const p = dg.game.player.pos; dg.cam(p.x + 2.6, 1.25, p.z + 0.5, p.x, 0.98, p.z); ${settle}`,
+  idle_back: `dg.app.begin('start', true); dg.step(170); dg.hold('forward'); dg.step(220); dg.hold('forward', false); dg.step(90); ${settle}`,
   s_vista: `dg.app.begin('cp2', true); dg.game.director.won = true; dg.world.doors.D_exit.target = 1; dg.tp(95.6, 0.4); dg.step(60); dg.look(Math.PI/2 - 0.12, -0.06); ${settle}`,
 };
 mkdirSync('tools/out/hero', { recursive: true });

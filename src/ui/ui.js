@@ -219,11 +219,10 @@ export class UI {
     const el = h(`<div class="veil"><div class="panel">
       <div class="eyebrow">Credits &amp; rights</div><h2>Destiny Gate</h2><div class="rule"></div>
       <div class="credits">
-        <h3>Original concept</h3><p>Destiny Gate — Design Overview and Concept Overview &amp; Artwork © 2009 Paul Limon / Nick Creature. Characters, era, setting and core mechanics come from those documents. This build is an internal vertical-slice study.</p>
-        <h3>Vertical slice</h3><p>Level 01 design specification: “Madness on the Night Train”. Level layout, puzzle sequencing, tuning and implementation were produced for this slice and are not claimed to appear in the originals.</p>
-        <h3>Generated assets</h3><p>Characters, props, tiling materials, flat art, sound effects, music and voice were generated with models served through fal.ai (Nano Banana Pro, Meshy 7.1 and Meshy auto-rigging, PATINA materials, ElevenLabs sound effects, music and speech) and then processed for the browser. A full provenance ledger ships with the source repository.</p>
-        <h3>Technology</h3><p>three.js WebGPURenderer and TSL, running on WebGL 2 by default. Cormorant Garamond and Jost typefaces (SIL Open Font License).</p>
-        <h3>Notice</h3><p>Rights to the title, branding and the 2009 concept art must be confirmed before any public distribution.</p>
+        <h3>Built by</h3><p><b>Phatty Acid Generative Studio</b></p>
+        <h3>Original concept</h3><p>Destiny Gate — Design Overview and Concept Overview &amp; Artwork © 2009 Paul Limon / Nick Creature. Characters, era, setting and core mechanics come from those documents.</p>
+        <h3>Vertical slice</h3><p>Level 01, “Madness on the Night Train”. Level layout, puzzle sequencing and tuning were produced for this slice and are not claimed to appear in the originals.</p>
+        <h3>Notice</h3><p>This build is an internal study. Rights to the title, branding and the 2009 concept art must be confirmed before any public distribution.</p>
       </div>
       <div class="row-actions"><button class="btn primary" data-a="back">Back</button></div>
     </div></div>`);
@@ -241,7 +240,12 @@ export class UI {
     this.open(el);
     this.app.state = 'inspect';
   }
-  closeInspect() { if (this.screen?.id !== 'inspect') return; this.close(); this.app.state = 'playing'; this.app.input.clear(); this.app.input.requestLock(); bus.emit('inspect.close', {}); }
+  closeInspect() {
+    if (this.screen?.id !== 'inspect') return;
+    this.close(); this.app.state = 'playing'; this.app.input.requestLock(); bus.emit('inspect.close', {});
+    // this runs inside the keydown that closed the card; the game's own key handler fires after it
+    this.app.input.clear(); setTimeout(() => this.app.input.clear(), 0);
+  }
 
   // ---------------------------------------------------------------- end card (hard cut)
   end({ time = 0, deaths = 0, watchUses = 0 } = {}) {

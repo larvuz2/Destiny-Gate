@@ -3,7 +3,7 @@ import { settings } from '../core/settings.js';
 
 // AudioDirector — maps systems to stems and events (GDD 16, 20.1).
 // "The train is the pulse; the monster is the distortion of that pulse."
-const ESSENTIAL = ['ui_hover', 'ui_select', 'ui_start', 'title', 'amb_train', 'amb_passengers', 'm0', 'vo_mitchell', 'fs_wood_1', 'fs_wood_2', 'fs_wood_3', 'fs_wood_4', 'cloth'];
+const ESSENTIAL = ['ui_start', 'title', 'amb_train', 'amb_passengers', 'm0', 'vo_mitchell', 'fs_wood_1', 'fs_wood_2', 'fs_wood_3', 'fs_wood_4', 'cloth'];
 const REST = ['amb_nightmare', 'amb_arena', 'amb_whispers', 'amb_station', 'amb_abyss', 'm1', 'm2', 'm3', 'm4', 'm5', 'sting', 'vo_conductor_1', 'vo_conductor_2',
   'fs_metal_1', 'fs_metal_2', 'fs_metal_3', 'fs_metal_4', 'fs_stone_1', 'fs_stone_2', 'door_open', 'door_forced', 'door_slam', 'stretch', 'lamp_flicker', 'blackout',
   'crack_tick_1', 'crack_tick_2', 'crack_tick_3', 'crack_stress', 'crack_critical', 'collapse_wood', 'collapse_metal', 'luggage_fall', 'settle',
@@ -132,14 +132,16 @@ export class AudioDirector {
     if (!ctx || !buf || ctx.state !== 'running') return null;
     if (this.oneShotVoices > 28 && vol < 0.5) return null; // ambience details lose first (GDD 16.7)
     if (settings.access.reducedIntensity && LOUD.has(name)) vol *= 0.55;
-    const s = ctx.createBufferSource(); s.buffer = buf; s.playbackRate.value = rate;
+    const s = ctx.createBufferSource(); s.buffer = buf; s.playbackRate.value = Number.isFinite(rate) ? rate : 1;
+    if (!Number.isFinite(vol)) vol = 1;
     const g = ctx.createGain(); g.gain.value = vol;
     let node = s;
     if (lp) { const f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = lp; node.connect(f); node = f; }
     node.connect(g); node = g;
     if (pos) {
       const p = ctx.createPanner(); p.panningModel = 'equalpower'; p.distanceModel = 'inverse'; p.refDistance = 2.2; p.maxDistance = 40; p.rolloffFactor = 1.1;
-      p.positionX.value = pos.x; p.positionY.value = pos.y ?? 1.2; p.positionZ.value = pos.z;
+      const fin = (v, d) => (Number.isFinite(v) ? v : d);
+      p.positionX.value = fin(pos.x, 0); p.positionY.value = fin(pos.y, 1.2); p.positionZ.value = fin(pos.z, 0);
       node.connect(p); node = p;
     }
     node.connect(echo ? this.echo : this[to] || this.sfx);
@@ -149,7 +151,21 @@ export class AudioDirector {
     return s;
   }
   pick(base, n) { return `${base}_${1 + Math.floor(Math.random() * n)}`; }
-  ui(kind) { this.unlock(); this.play(kind === 'hover' ? 'ui_hover' : kind === 'start' ? 'ui_start' : 'ui_select', null, { vol: kind === 'hover' ? 0.35 : 0.6 }); }
+  /** Menu feedback: plain synthesized selector blips (hover = one soft tick, select = a rising pair). */
+  ui(kind) {
+    this.unlock();
+    const ctx = this.ctx;
+    if (!ctx || ctx.state !== 'running') return;
+    if (kind === 'start') { this.play('ui_start', null, { vol: 0.5 }); kind = 'select'; }
+    const blip = (freq, at, dur, vol) => {
+      const o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime + at;
+      o.type = 'sine'; o.frequency.setValueAtTime(freq, t);
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(this.sfx); o.start(t); o.stop(t + dur + 0.02);
+    };
+    if (kind === 'hover') blip(740, 0, 0.045, 0.05);
+    else { blip(620, 0, 0.06, 0.08); blip(930, 0.055, 0.09, 0.07); }
+  }
   caption(text, dur) { const now = performance.now(); if (now - (this.lastCap[text] || 0) < 2500) return; this.lastCap[text] = now; bus.emit('caption', { text, dur }); }
   /** Briefly pull music and beds down so a hazard cue is unmistakable. */
   duckFor(seconds = 1.2, depth = 0.35) { const t = this.ctx.currentTime, g = this.duck.gain; g.cancelScheduledValues(t); g.setTargetAtTime(depth, t, 0.04); g.setTargetAtTime(1, t + seconds, 0.5); }

@@ -94,6 +94,12 @@ Watch-tuning checks:
 node tools/edge.mjs
 ```
 
+Real-time regression with audio on (inspect card, carriage transition):
+
+```bash
+node tools/rt_bugs.mjs
+```
+
 Hero-shot captures on any preset (GDD 12.5 / 13.6):
 
 ```bash
@@ -119,8 +125,8 @@ triangles and 60–135 draw calls per pass in gameplay views (budget 350k / 220)
 
 ## Assets and rights
 
-Characters, props, materials, flat art, sound, music and voice were generated through fal.ai and
-processed for the browser; see [docs/ASSET_LEDGER.md](docs/ASSET_LEDGER.md) for every prompt and model.
+Built by **Phatty Acid Generative Studio**. Characters, props, materials, flat art, sound, music and
+voice were generated through fal.ai and processed for the browser; see [docs/ASSET_LEDGER.md](docs/ASSET_LEDGER.md) for every prompt and model.
 The pipeline is reproducible with `FAL_KEY` set (`tools/fal.mjs`, `tools/build_*.mjs`).
 
 The premise, characters, era and core mechanics come from *Destiny Gate: Design Overview* and

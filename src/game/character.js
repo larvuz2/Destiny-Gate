@@ -75,6 +75,19 @@ export class Character {
     this.cur[layer + 'Name'] = name;
   }
 
+  /** Hand-authored still pose: freezes one instant of an existing clip into a new loopable clip. */
+  addPose(name, from, t = 0) {
+    const src = this.lower[from].getClip(), srcU = this.upper[from].getClip();
+    const freeze = (clip, tag) => new THREE.AnimationClip(name + tag, 1, clip.tracks.map((tr) => {
+      const n = tr.getValueSize(), v = new Float32Array(n);
+      tr.createInterpolant().evaluate(Math.min(t, clip.duration)).forEach((x, i) => (v[i] = x));
+      const vals = new Float32Array(n * 2); vals.set(v, 0); vals.set(v, n);
+      return new tr.constructor(tr.name, [0, 1], vals);
+    }));
+    this.lower[name] = this.mixer.clipAction(freeze(src, ':l')); this.upper[name] = this.mixer.clipAction(freeze(srcU, ':u'));
+    this.durations[name] = 1;
+  }
+
   /** Full-body clip. */
   play(name, opts) { this._set('lower', name, opts); this._set('upper', name, opts); }
   playLower(name, opts) { this._set('lower', name, opts); }
@@ -85,7 +98,14 @@ export class Character {
 
   update(dt) {
     this.mixer.update(dt);
+    // The mixer skips writing a bone whose animated value did not change (always true for a held
+    // pose), so procedural offsets would pile up frame after frame. Undo last frame's offsets first.
+    const P = (this._proc ||= ['Spine', 'Spine01', 'Spine02', 'neck', 'Head', 'LeftShoulder', 'LeftArm', 'LeftForeArm', 'RightShoulder', 'RightArm', 'RightForeArm']
+      .map((n) => ({ b: this.bones[n], pre: new THREE.Quaternion(), post: new THREE.Quaternion(), has: false })).filter((e) => e.b));
+    for (const e of P) { if (e.has && e.b.quaternion.equals(e.post)) e.b.quaternion.copy(e.pre); e.pre.copy(e.b.quaternion); }
+    this.postMix?.(dt);   // procedural layer (breathing, posture) sits between clips and IK
     for (const side of ['left', 'right']) if (this.ik[side].w > 0.001) this._solveArm(side);
+    for (const e of P) { e.post.copy(e.b.quaternion); e.has = true; }
   }
 
   /** Analytic two-bone IK: bend the elbow to the required reach, then aim the upper arm. */

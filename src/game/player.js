@@ -6,8 +6,9 @@ export const TUNE = {
   walk: 2.3, sprint: 4.0, focusWalk: 1.5, accel: 22, turn: 11, radius: 0.27,
   regen: 18, knockTime: 1.15, getupTime: 1.6, hitInvuln: 2.9,
 };
-// 'alert' is the neutral standing stance (the stock idle turns to look over its shoulder)
-const IDLE = 'alert';
+// Idle is hand-authored: a still, relaxed stance with procedural breathing layered on top
+// (the generated idle clips fidget and turn, which reads as nervous rather than worn out).
+const IDLE = 'idle';
 const CLIPS = ['walk', 'run', 'sit', 'sit_to_stand', 'swing', 'hit', 'knockdown', 'getup', 'dead', 'fall', 'open_door', 'alert'];
 
 const angDiff = (a, b) => { let d = a - b; while (d > Math.PI) d -= Math.PI * 2; while (d < -Math.PI) d += Math.PI * 2; return d; };
@@ -27,7 +28,32 @@ export class Player {
     this.frozen = false;                          // authored beats may hold input briefly
   }
 
-  attach(char) { this.char = char; this.game.gfx.scene.add(char.root); }
+  attach(char) {
+    this.char = char; this.game.gfx.scene.add(char.root);
+    char.addPose(IDLE, 'alert', 0);
+    this.idleK = 0; this.breath = 0;
+    const fwd = new THREE.Vector3(), right = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
+    char.postMix = (dt) => {
+      const still = this.state === 'normal' && this.speed < 0.3 && !this.action && !this.game.tools?.focusing;
+      this.idleK += ((still ? 1 : 0) - this.idleK) * Math.min(1, dt * 3);
+      const k = this.idleK;
+      if (k < 0.01) return;
+      this.breath += dt;
+      const t = this.breath, b = char.bones;
+      fwd.set(Math.sin(this.yaw), 0, Math.cos(this.yaw)); right.set(-fwd.z, 0, fwd.x);
+      // posture: arms hang close, shoulders a little dropped, chin slightly down — tired, not tense
+      char._rotateWorld(b.LeftArm, fwd, -0.14 * k); char._rotateWorld(b.RightArm, fwd, 0.14 * k);
+      char._rotateWorld(b.LeftForeArm, right, -0.1 * k); char._rotateWorld(b.RightForeArm, right, -0.1 * k);
+      char._rotateWorld(b.Head, right, 0.07 * k);
+      // slow breathing (about 13 breaths a minute) through the chest and shoulders
+      const br = Math.sin(t * 1.35);
+      char._rotateWorld(b.Spine01, right, -0.012 * br * k); char._rotateWorld(b.Spine02, right, -0.016 * br * k);
+      char._rotateWorld(b.LeftShoulder, fwd, 0.01 * br * k); char._rotateWorld(b.RightShoulder, fwd, -0.01 * br * k);
+      // a barely-there weight shift and head drift so he never looks frozen
+      char._rotateWorld(b.Spine, fwd, 0.008 * Math.sin(t * 0.31) * k);
+      char._rotateWorld(b.Head, up, 0.035 * Math.sin(t * 0.23 + 1.3) * k); char._rotateWorld(b.Head, right, 0.012 * Math.sin(t * 0.41) * k);
+    };
+  }
 
   spawn(x, z, yaw = Math.PI / 2, state = 'normal') {
     this.pos.set(x, this.game.col.floorY(x, z) ?? 0, z); this.prev.copy(this.pos); this.vel.set(0, 0, 0);

@@ -46,7 +46,7 @@ export class Director {
     bus.on('player.dead', () => { if (this.deadT < 0) { this.deadT = 0; this.stats.deaths++; } });
     bus.on('madness.fell', () => this._onMadnessFell());
     bus.on('madness.state', (e) => this._onMadnessState(e));
-    bus.on('inspect.close', () => { this.game.player.frozen = false; });
+    bus.on('inspect.close', () => { this.game.player.frozen = false; this.game.tools.useLock = 0.45; this.game.input.clear(); });
     bus.on('watch.rewind_start', (e) => { this.stats.watchUses++; if (e.panels.includes('C_bridge') && !this.flags.crossed) this.hint('Cross before it fails again.', null, 3.5); });
   }
 
@@ -204,7 +204,7 @@ export class Director {
       if (k > 0.2 && w.passengers?.visible) w.passengers.visible = false; // gone in the dark
       if (k > 1.2) { this.beat = null; g.scrollRate = 0.25; }
     }
-    if (!f.stretched && x > 20.25) { f.stretched = true; this.startBeat('stretch'); bus.emit('world.stretch', { x: 22.5 }); g.cam.kick(0.25); }
+    if (!f.stretched && x > 20.25) { f.stretched = true; this.startBeat('stretch'); bus.emit('world.stretch', { x: 22.5, z: 0 }); g.cam.kick(0.25); }
     if (this.beat === 'stretch') { const k = Math.min(1, this.beatT / 1.9); w.stretch.k = k * k * (3 - 2 * k); if (k >= 1) this.beat = null; }
     else if (f.stretched) w.stretch.k = 1;
     if (this.cp === 'start' && x > 22.95) { this.commit('cp1'); this.setObjective('front'); }

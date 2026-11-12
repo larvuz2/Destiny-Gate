@@ -9,9 +9,10 @@ export class Emitter {
   }
   emit(type, payload) {
     const set = this.map.get(type);
-    if (set) for (const fn of [...set]) fn(payload);
+    // a failing listener (a missing sound, a VFX hiccup) must never stop the simulation
+    if (set) for (const fn of [...set]) { try { fn(payload); } catch (e) { console.error(`[event ${type}]`, e); } }
     const any = this.map.get('*');
-    if (any) for (const fn of [...any]) fn(type, payload);
+    if (any) for (const fn of [...any]) { try { fn(type, payload); } catch (e) { console.error(`[event ${type}]`, e); } }
   }
 }
 export const bus = new Emitter();

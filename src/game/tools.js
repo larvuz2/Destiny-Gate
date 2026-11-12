@@ -66,7 +66,10 @@ export class ToolManager {
     this.prompt = use ? { action: 'interact', text: use.prompt, it: use } : wr ? { action: 'wrench', text: wr.prompt, it: wr } : null;
 
     // --- interact (E) ----------------------------------------------------------------------------
-    if (can && input.take('interact') && use) { this.reach(use.x, use.y ?? 1.1, use.z, 0.55); bus.emit('player.interact_success', { id: use.id, it: use }); use.onUse?.(use); }
+    // always consume the press — a press made while frozen (e.g. closing a card) must not fire later
+    const pressedUse = input.take('interact');
+    if (this.useLock > 0) this.useLock -= dt;
+    if (can && pressedUse && use && !(this.useLock > 0)) { this.reach(use.x, use.y ?? 1.1, use.z, 0.55); bus.emit('player.interact_success', { id: use.id, it: use }); use.onUse?.(use); }
 
     // --- wrench (LMB) ----------------------------------------------------------------------------
     if (can && this.has.wrench && this.swingT < 0 && !this.focusing && this.castT < 0 && input.take('wrench')) {
@@ -119,7 +122,8 @@ export class ToolManager {
     } else this.reservoir = Math.min(1, this.reservoir + dt / TOOL.lanternRefill);
 
     // --- watch (Q) -------------------------------------------------------------------------------
-    if (can && this.has.watch && input.take('watch')) {
+    const pressedWatch = input.take('watch');
+    if (can && this.has.watch && pressedWatch) {
       if (this.watchCd <= 0 && this.castT < 0 && this.swingT < 0) {
         this.castT = 0; this._aim();
         p.startAction('cast', 'open_door', TOOL.watchCast + 0.35, 1.2);

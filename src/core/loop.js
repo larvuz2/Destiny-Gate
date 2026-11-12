@@ -22,6 +22,8 @@ export class Loop {
   }
   _frame(now) {
     if (!this.running) return;
+    // schedule first: an exception in one frame must not freeze the game for good
+    if (!this.manual) requestAnimationFrame(this._frame);
     const dt = Math.min((now - this.last) / 1000, 0.25);
     this.last = now;
     if (!this.simPaused) {
@@ -31,7 +33,6 @@ export class Loop {
       if (n === MAX_STEPS) this.acc = 0; // drop time rather than spiral
     }
     this.render(dt, this.simPaused ? 1 : this.acc / TICK);
-    if (!this.manual) requestAnimationFrame(this._frame);
   }
   /** Deterministic stepping for tests. */
   advance(ticks) {
